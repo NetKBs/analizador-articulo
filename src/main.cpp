@@ -1,11 +1,15 @@
 #include <iostream>
+#include <ostream>
 #include "./datos/GestorDeArchivos.hpp"
+
+#include "./negocio/ExtraerArchivo.hpp"
+
 using namespace std;
 
 int main (int argc, char *argv[]) {
 
     if (argc < 2) {
-        cerr << "Uso: " << argv[0] << "<file_path>\n";
+        cerr << "Uso: " << argv[0] << " <file_path>\n";
         return 1;
     }
 
@@ -15,5 +19,8 @@ int main (int argc, char *argv[]) {
         return 1;
     }
 
+    ExtraerArchivo ex = ExtraerArchivo(articulo);
+    ex.procesarTexto();
+    
     return 0;
 }

@@ -1,0 +1,426 @@
+<pagina 001>
+<capitulo 1 - El problema>
+CAPiTULO I
+El problema
+<subcapitulo 101 - Planteamiento del problema> 
+Planteamiento del Problema
+La informacion geografica juega un papel muy importante en la sociedad. Casi todas las actividades y decisiones humanas tienen un componente geografico, y en general el 
+valor de la informacion aumenta cuando esta conectado a una ubicacion geografica, como pueden ser datos financieros, datos de salud y datos de comportamiento. Con el 
+rapido desarrollo tecnologico y la amplia aceptacion de los dispositivos moviles inteligentes, se esta desarrollando una nueva categoria de servicios basados en la localizacion
+Los servicios basados en localizacion (Location Based Services, LBS),  tal y como se conocen hoy en dia, engloban un conjunto de aplicaciones que incorporan a la 
+informacion de posicion otros datos relativos al entorno, con el fin de proporcionar un servicio de valor anadido al usuario  (TSSI, 2005). Estos servicios nacen de 
+la convergencia de Internet, las comunicaciones inalambricas y las tecnologias de posicionamiento, y estan muy ligados a conceptos emergentes como la inteligencia ambiental o el espacio inteligente.
+Dicho interes por los servicios de localizacion (LBS) y la tecnologia subyacente comenzo en la decada de los 90. Fue cuando el mercado en los servicios de datos fue 
+impulsado por los operadores de redes de telefonia movil. Hacia 1997, las redes moviles se desplegaron por toda Europa, Asia y Estados Unidos, y casi simultaneamente en America Latina y en el mundo.
+Durante los ultimos anos, diversas circunstancias han impulsado el desarrollo de los sistemas de localizacion. En el caso de EEUU, estas tecnologias cobraron especial 
+interes a raiz de un mandato legislativo promulgado por la Comision Federal de Comunicaciones (Federal Communications Commission, FCC) para la implementacion de E911 
+(Enhaced 911) el cual es un numero de telefono cuyo uso esta exclusivamente reservado para emergencias. La FCC decidio, que en diciembre de 2005 las operadoras de telefonia 
+tendrian que ser capaces de localizar automaticamente a cualquier persona que efectuara una llamada de emergencia con una precision de 50 a 100 metros (E-911, 2015).
+En el marco donde la diferenciacion por servicios es clave, algunos expertos coinciden en que las aplicaciones de localizacion generaran en el futuro una parte significativa 
+de los ingresos de las operadoras. Segun Gartner, empresa especializada en investigacion de mercado en Estados Unidos, durante una investigacion realizada en el 2012, expreso
+que los servicios sensibles al contexto son una tendencia clave para las aplicaciones moviles, y la ubicacion es un factor clave para ello (Gartner, 2012).
+Haciendo una revision del panorama actual, se observa que la posibilidad de conocer la ubicacion de un terminal movil ya ha dado lugar a numerosos servicios de informacion, rastreo, seleccion de rutas 
+y gestion de recursos. En el proyecto  Tecnologias y Servicios para la Sociedad de la Informacion  (TSSI, 2005) se ven reflejados algunos servicios de localizacion movil que se estan implementando o comercializando, como lo son: 
+Servicios por activacion automatica. Se inician cuando el usuario entra en un area de cobertura determinada. Resultan adecuados para aplicaciones publicitarias o de facturacion. 
+<pagina 002>
+Servicios de informacion. El usuario del servicio demanda informacion de algun tipo (establecimientos, trafico...), que varia segun su posicion. 
+Seguimiento por terceros. Contemplan tanto aplicaciones corporativas como de consumidor, donde la informacion de la localizacion es requerida por un tercero. Se pueden utilizar para gestion de flotas, busqueda de personas, etc. 
+Asistencia al usuario. Estan disenados para proveer al usuario de unas condiciones de red segura si este se encuentra en dificultades. Servicios de asistencia en carretera u otros servicios de emergencia estan dentro de este grupo. 
+Con los actuales avances en tecnologia y participacion de la comunidad, lo que antes se habia considerado como espectador o usuario pasivo y quien unicamente podia recibir informacion, ahora es todo lo contrario. El usuario ha tomado
+un papel activo en el proceso de la comunicacion, gracias a las apariciones de las redes sociales los usuarios han dejado atras viejos conceptos y formas de vida, como por ejemplo en el area de seguridad, el cual se ha mantenido como 
+la principal preocupacion en la sociedad actual.
+Son varios los beneficios que brindan las aplicaciones moviles a entes publicos y  privados en tema de seguridad, entre los cuales se destacan: Poder brindar a los cuerpos de seguridad informacion valiosa en tiempo real, como tambien a 
+las comunidades, facilitando la prevencion y actuacion sobre los eventos reportados, contribuyendo a mejorar la seguridad de la poblacion en general, contribuir a las investigaciones criminales asi como robustecer la informacion de crimen 
+y violencia disponible para la gestion de las politicas de seguridad.
+La Organizacion para la Cooperacion y el Desarrollo Economicos (OECD) y la Union Internacional de Telecomunicaciones (ITU) para el 2011 mencionan, entre otros beneficios, la posibilidad para el gobierno o instituciones privadas de llegar 
+a mayores grupos de ciudadanos, costo-efectividad en la prestacion de los servicios, rapidez en el flujo de informacion y mayor participacion ciudadana que llevan a mayor transparencia y rendicion de cuentas (OECD  ITU, 2011).
+En Venezuela se han desarrollado iniciativas en materia de informacion, prevencion y soluciones para la seguridad publica que hacen uso de la tecnologia movil, entre las cuales se desatacan:
+Policia de Bolsillo, una aplicacion movil que fue presentada para el 2014, disenada en pro de la seguridad ciudadana en el pais, es una aplicacion comoda y sencilla, que permite notificar a 3 contactos indicados previamente por el usuario 
+si este se encuentra en una situacion de emergencia (El Mundo, 2014).
+Patrullaje Inteligente, esta aplicacion detecta el cuadrante de seguridad correspondiente a la ubicacion del usuario, proporcionada por el GPS de su movil, indicandole al usuario la informacion necesaria para que este pueda contactar 
+el telefono de emergencia asociado y asi comunicarse con los efectivos policiales con el objetivo de denunciar algun hecho delictivo o solicitar asistencia (El Universal, 2014).
+Ambas aplicaciones coinciden en brindar al usuario la rapida y discreta comunicacion con un contacto en caso de emergencia, pero tienen como debilidad que no permiten hacer seguimiento a la atencion del evento que genera la denuncia de emergencia.
+Por otro lado, en visita realizada al Cuerpo de Bomberos de la UNEG en ciudad Guayana, estado Bolivar, y en conversacion con el encargado de esta entidad, se pudo detectar los siguientes problemas para la atencion de eventos de seguridad en Ciudad Guayana:
+Se detecto que la comunicacion entre cuerpos de bomberos, policiales y servicios de ambulancias dentro de Ciudad Guayana se establece a traves de equipos de radio, los cuales actualmente presentan fallas, ocasionado por obsolescencias de los 
+<pagina 003>
+equipos y tecnologias, produciendo el mal funcionamiento y por ende la comunicacion no es constante y poco fiable. Esto ocasiona escaso conocimiento sobre atenciones por parte de otros entes responsables en el ambito de la seguridad, dificultando la 
+organizacion y potenciacion de recursos.
+Los cuerpos de seguridad llevan un control de documentos que deben realizar de caracter obligatorio. Dichos registros son llevados manualmente, con formatos especificos para cada uno de los tipos de eventos atendidos, y a su vez clasificados por carpetas, generando conflictos en la 
+disponibilidad de los documentos dada la dificultad de busqueda e interpretacion, asi como el alto riesgo de duplicacion y perdida de informacion. 
+No existe un sistema automatizado que les permita conocer la estadistica de dichos registros. Dificultando mejorar la seguridad de la poblacion en general al no existir estadisticas exactas sobre la region que permitan a las personas u organizaciones afectadas tomar precauciones.
+Inexistencia de herramientas que permitan la correcta identificacion de la mejor ruta para trasladarse a una determinada ubicacion dentro de su jurisdiccion y por lo tanto deficit en los tiempos de respuesta en caso de una emergencia.
+Aunque las necesidades de los bomberos van mas alla de la propuesta de este trabajo, el sistema propuesto ayudara a solucionar muchos de los problemas planteados previamente, como lo son: Intercomunicacion entre los cuerpos de seguridad, generar estadisticas asociadas al tiempo 
+de atencion de eventos y seguimiento de los mismos en tiempo real.
+En vista de la necesidad de que los usuarios posean una herramienta de colaboracion en linea enfocada en aspectos de seguridad y evidenciando que estas aplicaciones no solo pueden estar cambiando la relacion ciudadano-policia, sino que tambien pueden 
+representar una forma innovadora de robustecer la informacion de crimen y violencia para la gestion de las politicas de seguridad ciudadana, se plantea el diseno de un sistema para la gestion de eventos geolocalizados que pueda servir a los cuerpos de seguridad, bomberos, servicios 
+de transito y en general todos los entes privados y publicos que requieran controlar en tiempo real y gerenciar procesos de atencion de eventos geolocalizados.
+De esta manera, se plantean las siguientes preguntas de investigacion:
+ Cuales son las necesidades de los entes encargados de la atencion de los eventos geolocalizados de seguridad ciudadana?
+ Cuales tecnologias y herramientas son adecuadas para disenar un sistema para la gestion de eventos geolocalizados?
+ Cuales son las caracteristicas necesarias a tomar en cuenta para el desarrollo de un sistema para la gestion de eventos geolocalizados de Seguridad Ciudadana?
+<pagina 004>
+<capitulo 2 - Objetivos de la investigacion>
+Objetivos de la investigacion
+<subcapitulo 201 - Objetivo general>
+Objetivo General
+Proponer una herramienta de atencion de eventos geolocalizados orientado a la seguridad ciudadana que permita gestionar de forma integral el proceso.
+<subcapitulo 202 - Objetivos especificos>
+Objetivos Especificos 
+Diagnosticar la situacion actual en contexto de atencion de eventos de emergencias dentro del municipio Caroni, estado Bolivar, Venezuela.
+Determinar las posibles necesidades y/o requerimientos  por parte de cada ente gubernamental afectado tales como: Policia, bomberos y centros medicos, y la comunidad en general.
+Disenar una propuesta para el seguimiento de la atencion de eventos orientada en la seguridad ciudadana, de acuerdo a los requerimientos establecidos previamente.
+Construir un prototipo de la herramienta, basandose en el diseno elaborado.
+Validar el prototipo con los usuarios finales para corroborar la utilidad y funcionamiento del mismo. 
+<subcapitulo 203 - Justificacion>
+Justificacion
+La seguridad ciudadana es una situacion social, donde predomina la sensacion de confianza, entendiendose como la ausencia de riesgos y danos a la integridad fisica y psicologica (Guardia del pueblo, 2017). 
+Actualmente, el tema de seguridad ciudadana es uno de los principales clamores de los ciudadanos, y el tema principal de opinion publica, por existir una altisima sensacion de inseguridad por el incremento alarmante de la delincuencia comun, 
+el cual debe ser controlado y reducido hasta niveles tolerables; al no ser posible eliminarlo dada su naturaleza (Gil, I. e Hidalgo P. 2012).
+En este sentido, se busca desarrollar herramientas y mecanismos efectivos que promuevan acciones que aumenten la participacion de los ciudadanos de forma organizada, su comunicacion con las autoridades responsables en ambito de seguridad y 
+acciones que reduzcan significativamente los tiempos de respuesta, por ende, obtener mejoras en la calidad de vida de las personas a traves de una cultura participativa.
+Dicha herramienta aprovechara los servicios de los medios sociales, los cuales crean oportunidades para el uso de la inteligencia colectiva de sus usuarios. Recordando que, su calidad y proyeccion dependen principalmente de las interacciones 
+entre las personas, de la riqueza de las conversaciones y la calidad de la colaboracion entre los participantes, para construir sentido compartido de lo que se esta realizando: la capacidad de 
+reportar en tiempo real los sucesos y la informacion sobre la atencion del mismo. Esto permitira abrir nuevas oportunidades para todos aquellos que deseen participar y brindar apoyo al crecimiento en  areas de seguridad y desarrollo tecnologico en Venezuela.
+<pagina 005>
+<subcapitulo 204 - Delimitacion>
+Delimitacion
+La presente investigacion se enmarca en la realizacion de un diseno general que sirva a cualquier organizacion o empresa que necesite atender eventos geolocalizados en el area de seguridad ciudadana. 
+Dado que no se logro conseguir un organismo del estado que brindara los recursos  para el desarrollo de la aplicacion (Servidor en la nube, herramientas de desarrollo movil, web y ambiente de pruebas), 
+se desarrollara un prototipo para la empresa Xpectra, la cual desarrolla software de atencion de eventos para empresas de seguridad. 
+Este prototipo sera probado en una de las empresas de atencion de eventos a las cuales Xpectra les da servicio. Es importante resaltar que el prototipo podra ser aplicado a 
+cualquier empresa u organismo que se encargue de atencion de eventos geolocalizados.
+Por lo tanto, este trabajo implica el estudio de lo actual en materia de comunicaciones y la forma en que estas han revolucionado la interaccion de los seres entre si y, por ende, con los diferentes actores sociales en el ambito de seguridad, con el objetivo de cubrir las 
+necesidades de los entes y usuarios finales que requieran controlar en tiempo real y gerenciar procesos de atencion de eventos geolocalizados.
+Este sistema comprende el proceso completo para la gestion de eventos geolocalizados de seguridad, lo cual incluye: 
+Reporte geolocalizado del evento por parte del usuario.
+Asignacion de unidades de atencion por parte de la entidad responsable. 
+Notificacion de la asignacion del evento a la unidad de atencion.
+Seguimiento de la atencion del evento por parte del usuario y de la entidad responsable
+Herramientas para que la entidad responsable pueda gerenciar el proceso
+
+<pagina 006>
+<capitulo 3 - Marco Teorico>
+CAPiTULO III
+MARCO TEoRICO
+<subcapitulo 301 - Antecedentes> 
+Antecedentes de la Investigacion
+El desarrollo de esta investigacion, se fundamento en una serie de proyectos similares realizados a nivel internacional y nacional. Estos trabajos se basan en la idea de incentivar a la comunidad a trabajar con los cuerpos policiales locales, mediante el envio de informes acerca de sucesos delictivos o alertas de emergencia.
+Ejemplos de este tipo de aplicaciones son:
+Policia de bolsillo: Una aplicacion gratuita para telefonos moviles lanzada a nivel nacional en Venezuela para el ano 2014, motivada por los esfuerzos de combatir la inseguridad y que funciona como un boton de panico frente a emergencias o incidentes de seguridad. 
+Esta aplicacion permite la configuracion para agregar hasta tres contactos que el usuario decida, con los correos y telefonos de quienes en conjunto con los entes policiales recibiran el mensaje con la ubicacion georeferencial en caso de una contingencia. La aplicacion brinda la 
+posibilidad a la comunidad de notificar en tiempo real sus emergencias sin necesidad de colapsar el sistema de seguridad venezolano (El mundo, 2014)
+Patrullaje Inteligente: Disenada por el Gobierno como una herramienta que permite a las personas el contacto rapido y directo con los funcionarios mas cercanos en caso de una emergencia. Una vez instalada, el app de Patrullaje Inteligente solicitara acceso a la ubicacion actual de la 
+persona, para facilitar informacion del cuadrante de seguridad en que esta situado.
+Los cuadrantes forman parte de un metodo de Patrullaje Inteligente activado el ano pasado por el Gobierno, que dividio las ciudades por cuadrantes y asigno una determinada patrulla para cada uno con un numero de telefono, con la idea de garantizar respuesta en un breve lapso en caso de una emergencia (El Universal, 2014).
+PF Movil: Aplicacion de la Policia Federal de Mexico, que permite realizar reportes de delitos y establecer un vinculo entre la ciudadania y el Centro Nacional de Atencion Ciudadana (CNAC), que es parte de la Comision Nacional de Seguridad (CNS). Permite realizar llamadas al 088, enviar reportes en forma de 
+texto con la posibilidad de adjuntar multimedia (audio, foto o video), consultar reportes de incidentes en vias federales y hospitales cercanos; es posible solicitar informacion acerca de diferentes topicos y consultar las cuentas de Facebook, Instagram y Twitter.
+La aplicacion no recopila datos personales y los reportes no se almacenan en el dispositivo (PF Movil, Policia Federal, 2015).
+Cuadrante Amigo, es una aplicacion desarrollada en Colombia, la cual identifica el cuadrante o area en la que este ubicado y lo conecta de manera inmediata con el telefono de los policias a cargo, sin siquiera tener que marcar el numero (Cuadrante Amigo, 2015). 
+Alto el crimen, es una aplicacion movil desarrollada por Hub-Sec, es una aplicacion que permite a los usuarios presentar denuncias de forma sencilla, rapida y anonima desde  smartphones, Adicionalmente, se visualizan los reportes realizados por otros usuarios mediante un mapa y soporta el envio de 
+solicitudes de asistencia, mediante internet, a las autoridades competentes (Alto al Crimen Hub-Sec, 2016).
+Es importante tener en cuenta que el exito de estas aplicaciones depende en gran parte del uso responsable por parte de los ciudadanos para no generar falsos reportes o pistas erradas que desvien investigaciones. Son varios los retos que enfrentan las autoridades con el uso de estas aplicaciones.
+Tecnologia en contexto de seguridad, la tecnologia ha incursionado cada vez mas en el contexto de la seguridad, lo cual ha motivado el desarrollo de nuevos proyectos a nivel internacional y nacional, buscando siempre incentivar la participacion de la comunidad en la atencion y control de eventos geolocalizados en su localidad
+<pagina 007>
+Los proyectos previamente expuestos, ejemplifican de manera acertada, que aspectos y funcionalidades debe poseer la herramienta a desarrollar en esta investigacion.
+<subcapitulo 302 - Bases Teoricas>
+Bases teoricas
+Seguidamente se analizan las bases teoricas que enriqueceran el proceso de la investigacion, asi como tambien orientar el proceso de investigacion, a fin de tomar aquellos conocimientos necesarios para la realizacion del sistema propuesto.
+Las redes sociales para la inclusion y la participacion social (Vallejo M. Ayala L. y Orduz R. 2012)
+Innovacion social: ciudadania digital y ciberactivismo
+Cuando se hace referencia a la ciudadania, suele pasar que inmediatamente se relaciona con el derecho al voto y el sentido de pertenencia que da el hecho de nacer y hacer parte de un territorio especifico dentro del globo terraqueo. Aunque, en parte, esta primera mirada es valida, y no se aleja de la realidad, es lamentable evidenciar que la 
+oportunidad de aprovechar, en la mas amplia dimension, un concepto tan rico y un ejercicio tan valioso a la hora de transformar realidades.
+La ciudadania no es otra cosa que ejercer derechos y deberes dentro de una sociedad, lo cual implica participar, de una manera o de otra, en muchos aspectos de la dinamica social, buscando acciones mas innovadoras y que muestren mayor participacion o compromiso directo con nuestras comunidades. La ciudadania digital implica ejercer derechos y 
+deberes ciudadanos, en y desde la Web 2.0, y por ende, en la llamada sociedad de la informacion, abriendole nuevos espacios a la participacion por canales no tradicionales, es decir, ir del derecho al voto al derecho de expresion y de opinion, de manera directa.
+Es por esto que se debe tener en cuenta que, en una sociedad como la actual, el valor de la ciberciudadania ha recobrado un puesto de honor, gracias a factores como la interculturalidad, los intereses comunes (por ejemplo, los temas ecologicos y los derechos humanos) y las TIC. El uso extensivo, y cada vez mas integrado, de los mismos aparatos, 
+codigos, canales de comunicacion y redes sociales, conforman un tipo de ciudadano universal, en terminos postmodernos, ya que el ciberespacio no es un territorio vedado a la realidad sociopolitica.
+La red  otorga libertad a los individuos, porque es un espacio donde cada persona puede, sin necesidad de pedir permiso, dejar huella de su existencia y sentirse parte de este mundo; eso si, haciendo buen uso de esta informacion social para guiar e informar procesos de desarrollo que apunten a mejorar la calidad de vida de todas las personas y a 
+conocer nuevas herramientas para activar a la ciudadania en procesos de gobernanza, a partir de dinamicas de gobierno abierto y herramientas digitales de colaboracion civica. Lawrence Lessig, fundador del Centro para Internet y la Sociedad y de Creative Commons, en el libro Codigo 2.0, senala que la arquitectura de la red dificulta el control de la 
+expresion por parte de los grupos de poder y que ello constituye un entorno para el desarrollo de la individualidad, la creatividad y la libertad de expresion. 
+Inclusion y participacion
+El ciberactivismo, es una estrategia con la que se persigue el cambio de la agenda publica y la inclusion de un nuevo tema en el orden del dia de la gran discusion social, mediante la difusion de un determinado mensaje y su movilizacion a traves del  boca a boca  que se puede desarrollar por medio de los nuevos canales virtuales de participacion. 
+Es por esto que el ciberactivismo ha logrado que cualquier publico se identifique, motive y encuentre un interes comun con otras personas, generandole un gran reto a la sociedad, al enfrentarla a la necesidad de incluir en escenarios virtuales la participacion de los demas. Sin embargo la motivacion y la confianza resultan, en algunos casos, 
+los principales obstaculos y, en ocasiones, las variables mas criticas de dicha estrategia de comunicacion. Para lograr esto, es importante que la apuesta, a la hora de involucrar mas personas en las problematicas sociales, tenga que ver con la busqueda de alternativas que permitan construir, que no anulen lo local y que derroten la indiferencia. 
+Hablar de participacion e inclusion ciudadana supone el compromiso de lograr que amplios sectores de las sociedades, sumidos en el silencio y el olvido, sean visibilizados y logren integrarse a la participacion de la que se mantienen excluidos.
+ Como aprovechar las nuevas tecnologias para vincular a la ciudadania con la toma de decisiones?
+La apropiacion social de las TIC no solo es un proceso comunicacional que ha movido a las comunidades para lograr su participacion en el acceso y uso con sentido de las tecnologias y de las nuevas modalidades de comunicacion e informacion que ellas hacen posible, sino que tambien ha implicado la introduccion de cambios progresivos en los modelos de democracia social. 
+<pagina 008>
+Es importante insistir en la necesidad de que este tipo de sociedad articule el caracter humano y social de las TIC, al igual que su dimension etica, utilizando la innovacion social como condicion necesaria para la inclusion social en la sociedad del conocimiento, asi como para la participacion de comunidades y redes sociales en la produccion del saber, 
+de conocimiento y de contenidos, de forma que se puedan reducir las brechas. 
+Mas aun, es fundamental entender las razones por las que un millar de ciudadanos quieren verse involucrados e inmersos en un movimiento, a primera vista, coherente e impactante. Sentirse parte de una causa es quizas una de las emociones que mas mueve a la humanidad y es objeto de contaste busqueda en cualquier entorno. 
+Son estos mecanismos de inclusion, participacion y, sobre todo, de deliberacion los que han reforzado la razon de la existencia de estas redes y han marcado la propia naturaleza su uso.
+ Sistema de posicionamiento global (GPS)
+Expresa Ing. Juan Manuel Toloza (2012), en su trabajo de doctorado titulado:  Algoritmos y tecnicas de tiempo real para el incremento de la precision posicional relativa usando receptores GPS estandar 
+El posicionamiento de un objeto sobre la corteza terrestre durante anos ha sido una tarea de innumerables investigaciones y adelantos tecnologicos. Desde los mercantes que usaban los cuerpos celestiales para ubicarse en su navegacion por los oceanos, hasta los sistemas autonomos que, portando un micro-dispositivo embebido, resuelven en cuestion de segundos la 
+posicion actual sobre la faz de la tierra para poder realizar su navegacion. Muchas son las aplicaciones que se favorecen de esta tecnologia y en general la mayoria de ellas se pueden llevar a cabo sin inconvenientes en cuanto a la precision requerida. (Toloza J, 2012).
+Se tiene como objetivo en el presente trabajo de investigacion combinar tecnologias moviles y web como canales de comunicacion con este sistema GPS, para asi poder rastrear vehiculos y asistir al servicio de emergencia.
+ Que significa GPS?
+El Sistema de Posicionamiento Global, mas conocido por sus siglas en ingles, GPS (siglas de Global Positioning System), es definido por la Real Academia Espanola (2016), como:  Sistema que permite conocer la posicion de un objeto o de una persona gracias a la recepcion de senales emitidas por una red de satelites .
+Funcionamiento ( Que significa y como funciona el GPS?, 2017)
+Los satelites GPS (funcionan mediante una red de 24 satelites en operacion permanente y 3 de respaldo) giran alrededor de la tierra dando dos vueltas completas al dia dentro de una orbita muy precisa transmitiendo senales a la tierra, a 20 200 km de altura, que indican su ubicacion y la hora que les proporciona un reloj atomico que traen abordo. 
+Todos los satelites estan sincronizados, de tal manera que las senales transmitidas se efectuan en el mismo instante. 
+Los receptores de GPS reciben esta informacion y la utilizan para triangular y calcular la localizacion exacta del receptor. Las senales se mueven a la velocidad de la luz y llegan a los receptores en diferentes tiempos ya que algunos satelites estan mas alejados que otros. Esencialmente, el receptor GPS en la tierra compara el tiempo que toma una senal 
+que se transmite desde uno de los satelites en el espacio, con el tiempo en que esta misma senal es recibida por el receptor. La diferencia en tiempo, le indica al receptor de GPS que tan lejos esta del satelite. 
+Ahora bien, con la obtencion de varias lecturas de diferentes satelites, el receptor de GPS puede determinar con gran exactitud la posicion del usuario y desplegarla en un mapa electronico en la unidad receptora. Cuando el receptor estima la distancia de al menos cuatro satelites GPS, puede calcular su posicion en tres dimensiones, Longitud, Latitud y Altitud
+areas que aprovechan esta tecnologia (Toloza J, 2012)
+<pagina 009>
+Algunas areas especificas como la agricultura de precision, la aeronavegacion, la navegacion maritima, los desarrollos aeroespaciales, mineria de superficies, clasificacion para control de vehiculos en tiempo real y en la comunidad de transporte para obtener la ubicacion de un tren,  entre otras necesitan una mayor precision para realizar sus tareas. 
+Existen muchas investigaciones y desarrollos de empresas, gobiernos e instituciones que afrontan a diario este desafio. Muchos de ellos con resultados exitosos y comprobables
+Servicio basado en localizacion (LBS)
+Los servicios basados en localizacion (Location Based Services, LBS), tal y como se entienden hoy en dia, engloban un conjunto de aplicaciones que incorporan a la informacion de posicion otros datos relativos al entorno, con el fin de proporcionar un servicio de valor anadido al usuario. Estos servicios nacen de la convergencia de Internet, las comunicaciones inalambricas y las tecnologias de posicionamiento.
+ Que significa LBS?
+Segun TechTarget se define como: 
+Un servicio basado en ubicacion (LBS) es una aplicacion de software para un dispositivo movil con capacidad de IP que requiere conocimientos sobre donde se encuentra el dispositivo movil. Los servicios orientados en localizacion pueden basarse en consultas y proporcionar al usuario final informacion util. TechTarget (2009)
+Los Servicios Basados en Localizacion buscan ofrecer un servicio personalizado a los usuarios basandose en la ubicacion geografica de estos. 
+Haciendo enfasis en que la informacion de ubicacion por si misma no es el servicio definitivo, pero si la informacion de ubicacion se combina con el contenido, se pueden desarrollar servicios utiles
+Funcionamiento (Google Maps, 2017)
+Los servicios basados en localizacion son un conjunto de herramientas que proporcionan servicios personalizados con ayuda de la localizacion geografica del usuario.
+Una ubicacion puede determinarse de distintas maneras. Puesto que el GPS no esta siempre disponible y que las ubicaciones facilitadas por las torres de telefonia movil pueden no ser muy precisas, un servicio de localizacion puede utilizar los datos WiFi que se emiten publicamente desde puntos de acceso inalambrico para determinar una ubicacion. Gracias a las senales de los puntos de acceso, 
+los dispositivos moviles pueden determinar su ubicacion general rapidamente sin consumir demasiada energia.
+areas que aprovechan este servicio
+Las aplicaciones tipicas LBS buscan proveer servicios geograficos en tiempo real. Estas no siempre son usadas para localizar personas, tambien se pueden hacer uso de estos servicios para el rastreo de vehiculos (Detektor, 2014), mercancia (FedEx Movil, 2017), servicios de mapas y enrutamiento (Google Maps, 2017), entre otros.
+Efecto de los mecanismos de entrega de informacion en los servicios LBS -Pull Versus Push.
+De acuerdo con Heng Xu, Hock-Hai Teo, Bernard C.Y. Tan, y Ritu Agarwal en lo establecido en  El papel de la tecnologia push-pull en el calculo de la privacidad: el caso de los servicios basados en localizacion  (Titulo original: The Role of Push Pull Technology in Privacy Calculus: The Case of Location-Based Services) realizado en el 2010, la entrega y 
+adquisicion de informacion en el contexto LBS podria ser pull o push. En LBS basado en pull, los usuarios solicitan alguna informacion o utilizan algun servicio basado en sus ubicaciones una sola vez. Este tipo de LBS un consumidor marca o senala a un proveedor de servicios para obtener informacion o un servicio especifico, como el cajero automatico mas cercano. 
+En estos servicios, la informacion de ubicacion es efimera y util solo para que los usuarios reciban solicitudes de navegacion en tiempo real. 
+El otro tipo de mecanismo de entrega de informacion es el LBS basado en push, donde un proveedor de servicios envia al usuario informacion basada en su proximidad. En el enfoque push, la informacion de ubicacion se utiliza para dirigirse a un usuario y se le enviaran los anuncios cuando el o ella se encuentre cerca de los comerciantes (p.12). 
+Control del consumidor sobre el servicio
+<pagina 010>
+En el contexto de la LBS, los diferentes mecanismos de prestacion de informacion (push y pull) podrian proporcionar a los consumidores diferentes niveles de control sobre la cantidad de informacion personal que es liberada a los proveedores de LBS, y por lo tanto puede influir en sus calculos de privacidad. 
+En el LBS basado en pull los consumidores ejercen un mayor control sobre la interaccion: La decision de iniciar el contacto con el proveedor LBS es voluntario, y la informacion de ubicacion se proporciona solo para completar la transaccion solicitada. 
+En el LBS basado en push los consumidores ejercen menos control sobre sus interacciones con el proveedor de servicios: La informacion y los servicios basados en la ubicacion se envian automaticamente al telefono celular del consumidor basado en el seguimiento de la ubicacion y preferencias del mismo (p.13).
+Factores de exito y desafios de la investigacion en LBS
+En  Servicios basados en localizacion en la industria de las comunicaciones moviles  (Titulo original: Location Based Services in the Mobile Communications Industry) realizado en el 2006, se expresa:
+A pesar de la atractiva idea de usar la informacion de ubicacion del usuario para proporcionar servicios altamente personalizados e inteligentes, hay ciertos desafios que deben ser abordados para que LBS tenga exito. Se pueden dividir estos desafios en tres categorias, a saber: Desafios tecnologicos, desafios eticos y retos empresariales.
+El principal desafio tecnologico para LBS es la capacidad de crear servicios faciles de usar y satisfactorios. Se habla mucho de cual seria la interfaz de usuario mas adecuada y el tipo de servicio (pull o push) en terminos de satisfaccion del usuario. 
+Por ejemplo, en el caso de servicios basados en push, no se requiere que un usuario emita consultas manualmente para obtener la informacion que busca. El sistema le informa automaticamente, en funcion de su ubicacion actual y de la lista de preferencias listadas en el perfil del usuario.
+El problema es que de esta manera la intencion del usuario no puede ser perfectamente capturada y el usuario puede ser frecuentemente perturbado por informacion "fuera del contexto". Asi, a pesar de la facilidad de la satisfaccion del usuario no esta asegurada. 
+Por otro lado, en los LBS basados en pull, donde los clientes tienen que consultar al servidor, los usuarios pueden tener dificultades en el uso de estos servicios debido a algunas restricciones como lo es la impredecibilidad en entornos moviles (desconexiones, capacidades de los dispositivos, velocidades de acceso, entre otros.) es por ello que debe tenerse muy en cuenta al disenar LBS (Ververidis, C. y Polyzos, G. p.6).
+Requisitos implicitos
+Uso no muy intensivo de la red movil y volumen minimo de datos transmitidos.
+Posibilidad de funcionamiento sin conexion.
+Interfaces sencillas y faciles de usar
+Cantidad limitada y bien especificada de contenido de informacion presentado
+Tener en cuenta las limitaciones tecnicas existentes, combinadas con limitaciones humanas.
+Para que el LBS tenga exito se necesitara entregar informacion pertinente, en el momento y lugar de eleccion de los usuarios (p.7).
+Impacto economico de los servicios de geolocalizacion (Oxera, 2013)
+La geolocalizacion, en todas sus vertientes y aplicaciones, tanto de uso domestico como profesional ha permitido en los ultimos anos una optimizacion de servicios y gestion de productos y actividades, lo que irremediablemente se ha traducido en un impacto economico para la sociedad.  
+A continuacion se presenta el contenido obtenido del estudio   Cual es el impacto economico de los servicios Geo?  (Titulo original: What is the economic impact of Geo?) realizado en el 2013 por la consultora Oxera para Google, con la intencion de evidenciar datos especificos donde la geolocalizacion ha tenido impacto.
+<pagina 011>
+ Cuales son los efectos directos de los servicios Geo?
+Los efectos directos se refieren a la presencia economica de aquellas empresas directamente involucradas en la produccion de Geo servicios (por ejemplo, las empresas que forman parte de la cadena de valor, como Google, Carifact y Garmin) y el valor que crean.
+Estos efectos se pueden medir de varias maneras: Por los ingresos que se generan, capitalizacion bursatil, valor agregado bruto (VAB), o por los trabajos implicados en la produccion de estos servicios.
+Este informe ha adoptado una serie de enfoques y estima que el sector de servicios geograficos genera entre 150 y 270.000 billones de dolares en ingresos a nivel mundial. Este rango se basa en dos formas diferentes de calculo que conjuntamente dan una indicacion de la estimacion probable del orden de magnitud en lugar de un valor preciso. 
+A modo de comparacion, esto es superior a los 25 billones de dolares de los ingresos generados por la industria de los videojuegos, en gran medida equivalentes a los 140 billones de dolares de los ingresos de la industria mundial de servicios de seguridad, o alrededor de un tercio de los ingresos de 594 billones de dolares a la industria aerea mundial.
+Las estimaciones de ingresos proporcionan una indicacion del tamano de las transacciones que estan ocurriendo, pero no captan la contribucion economica total de un sector. Un metodo alternativo para cuantificar el impacto de un sector es analizar su VAB. Esto representa los costos de los insumos incurridos. El VAB puede desglosarse en las ganancias de los 
+proveedores de servicios Geo y los salarios pagados a los que trabajan en los servicios Geo.
+Este informe estima que el sector de servicios Geo tiene un VAB global de 113 billones de dolares. A modo de comparacion, el VAB global es de aproximadamente 70 trillones de dolares, lo que sugiere que los servicios de Geo representan aproximadamente el 0,2% del producto interno bruto (PIB) mundial. En comparacion con otras industrias, la 
+industria aerea global tiene un VAB de aproximadamente 22 billones de dolares.
+ Como se benefician los consumidores de los servicios Geo?
+Los servicios geograficos son de amplio alcance, como se refleja en la gama de usos que los consumidores tienen para estos servicios. Todos estos usos generan beneficios para los consumidores de diferentes maneras, y estos beneficios son a su vez parcialmente capturados en los impactos de los ingresos ilustrados bajo los efectos directos.
+Esto demuestra que los consumidores estan dispuestos a pagar para usar estos servicios. Ademas, obtienen beneficios de los servicios que no se capturan a traves de los ingresos. Esto es evidente cuando se considera que muchos servicios Geo son gratuitos en el punto de uso (por ejemplo mapas Michelin).
+Los servicios Geo suelen ser un bien intermedio, es decir, normalmente no son valiosos en si mismos, sino que ayudan a los consumidores a participar en otras actividades. Por lo tanto, el beneficio para el consumidor de los servicios Geo se deriva del valor para el consumidor de las actividades que facilitan (por ejemplo visitar un nuevo destino). 
+Ejemplos de los beneficios para los consumidores de los servicios Geo
+Utilizar una navegacion eficiente permite disminuir las horas de viajes y por consiguiente ahorro de combustible. Este impacto podria valer alrededor de 22 billones de dolares por ano a los consumidores.
+Beneficios educativos. Los servicios Geo pueden proporcionar a los usuarios un valor educativo mas alla de su uso convencional en navegacion. Los sistemas de informacion geografica pueden considerarse una herramienta util de la tecnologia de la informacion para promover el pensamiento, la toma de decisiones y la resolucion de problemas de orden superior. 
+Los Geo servicios tambien pueden proporcionar a los individuos un mejor acceso a la informacion sobre la ubicacion de paises, ciudades y lugares de interes, lo que conduce a una poblacion mas informada. Este impacto educativo podria valer alrededor de $ 12 mil millones al ano.
+Tambien gracias a la geolocalizacion se pueden conseguir respuestas mas rapidas en caso de emergencia, por ejemplo en Inglaterra ha ayudado a salvar 152 vidas por ano. 
+
+<pagina 012>
+<capitulo 4 - Marco Metodologico>
+CAPiTULO IV
+MARCO METODOLOGICO
+La metodologia no es mas que la descripcion de como son los pasos a seguir para dar respuesta a las preguntas planteadas o lo que es lo mismo el problema de investigacion, de manera que permita establecer un conjunto de pasos semanticos que se llevara a cabo a fin de dar forma a la presente investigacion.
+A continuacion se describe como se desarrollara la investigacion para el presente proyecto, identificando el tipo de investigacion y demas aspectos que describen la metodologia a emplear.
+<subcapitulo 401 - Tipo de Investigacion>
+Tipo de investigacion
+El presente trabajo de investigacion, se enmarca en una investigacion de tipo proyectiva, la cual  consiste en encontrar la solucion a los problemas practicos, se ocupa de como deberian ser las cosas para alcanzar los fines y funcionar adecuadamente  (Cordoba M. y Monsalve C., 2010). 
+Lo anteriormente expuesto se ve reflejado en la propuesta de la elaboracion de una herramienta para solucionar problemas y necesidades de tipo practico, a nivel social partiendo de un diagnostico preciso de las necesidades del momento en el ambito nacional y las tendencias futuras.
+<subcapitulo 402 - Diseno de Investigacion>>
+Diseno de la investigacion 
+Siguiendo los requerimientos establecidos en la UPEL (2006) la presente investigacion puede catalogarse como una investigacion documental y de campo.
+Arias (1999) define la investigacion de campo de la siguiente forma:  Consiste en la recoleccion de datos directamente de la realidad donde ocurren los hechos, sin manipular o controlar variable alguna . Por otra parte, la investigacion del tipo documental es definida por Arias (1999), 
+como:  Aquella basada en la obtencion y analisis de datos provenientes de materiales impresos u otros . 
+En vista de lo anteriormente expuesto se puede concluir que la investigacion es del tipo documental dado que realiza una revision bibliografica de investigaciones previamente realizadas, casos similares previamente estudiados, y esta basado en normativas establecidas a nivel mundial. 
+Adicionalmente es de campo, porque los datos son tomados de la realidad, analizando el comportamiento de 
+cada uno de los procesos que se generan dentro de la comunidad en areas de seguridad.
+<subcapitulo 403 - Poblaci n y Muestra>
+Poblacion y muestra
+La poblacion se reduce al area de Ciudad Guayana, Edo. Bolivar, como el lugar sobre el cual los usuarios realizan los distintos reportes de sucesos asociados con la seguridad de la zona. A su vez, se selecciono una muestra perteneciente a esta poblacion, a la cual se le aplico 
+un cuestionario para obtener los aspectos de diseno y funcionalidad iniciales a incorporar en la herramienta.
+Tecnica e instrumentos de recoleccion de datos
+En funcion de las necesidades del proyecto se escogieron las siguientes tecnicas e instrumentos de recoleccion de datos que permitieron realizar el levantamiento de requerimientos:
+<pagina 013>
+Cuestionario: Fue utilizado para identificar los intereses y necesidades del publico objetivo y fue aplicado a la muestra seleccionada de la poblacion de Ciudad Guayana - Edo. Bolivar, Venezuela; con un nivel de confianza del 90% y margen de error del 5.5%. 
+Entrevistas: Se utilizo para levantar los requerimientos y para recibir retroalimentacion en las etapas de diseno y validacion del software a desarrollar por parte del cliente.
+Revision documental: Sirve de punto de partida para ubicar los estudios, investigaciones datos e informacion sobre el problema formulado.
+<subcapitulo 404 - Metodologia>
+Metodologia de desarrollo 
+Desarrollo incremental es un proceso de desarrollo de software creado en respuesta a las debilidades del modelo tradicional de cascada. Basicamente este modelo de desarrollo, es un conjunto de tareas agrupadas en pequenas etapas repetitivas (iteraciones).
+El modelo consta de diversas etapas de desarrollo en cada incremento, las cuales inician con el analisis y finalizan con la implantacion y aprobacion del sistema. En el presente proyecto se utilizo el desarrollo incremental en reconocimiento de sus ventajas al:
+Ser dinamico y flexible, permitiendo usar las salidas de las etapas precedentes como entradas en las etapas sucesivas. 
+Permitir un impacto ventajoso frente a los usuarios finales, dado que en cada presentacion de avance se contaba con  partes operativas del software.
+Facilidad de corregir cualquier error detectado en las presentaciones de avances pautadas con los usuarios finales, como tambien llevar a cabo mejoras.
+
+<pagina 014>
+<capitulo 5 - Resultados>
+CAPiTULO V
+RESULTADOS
+<subcapitulo 501 - Analisis>
+Analisis del sistema
+1.	Requerimientos funcionales
+a)	Visualizacion y capacidad para generar solicitudes de atencion geolocalizadas.
+b)	Asignacion de unidades de atencion por parte del organismo responsable
+c)	Notificacion de la asignacion del evento a la unidad de atencion.
+d)	Seguimiento del proceso de atencion del evento por parte del usuario y la entidad responsable.
+2.	Requerimientos no funcionales
+a)	Interfaces amigables e intuitivas. 
+b)	Funcionamiento independiente de la plataforma (web y movil).
+3.	Identificacion y descripcion de usuarios
+a)	Administrador del sistema: Realiza la funcion de administrador, los cuales son los encargados de la configuracion del sistema en general y aceptar la afiliacion de los organismos de atencion. 
+b)	Cliente (Usuario final): Cualquier persona, sin necesidad de poseer conocimientos tecnicos, que utiliza la aplicacion movil para generar y hacer seguimiento de su solicitud de atencion. 
+c)	Responsable unidad de atencion: Personas adscritas a los organismos de atencion de eventos, sin necesidad de poseer conocimientos tecnicos, que utilizan la aplicacion movil para gestionar solicitudes de atencion de acuerdo al servicio que prestan.
+d)	Organismos de atencion a eventos: Aquellos organismos publicos o privados que deseen afiliarse al sistema para prestar servicios a traves de sus unidades de atencion.
+e)	Operadores del centro de atencion a eventos: Son los responsables de gestionar las solicitudes de atencion reportadas por los usuarios, asegurando la calidad del servicio prestado.
+Tabla 1. Descripcion administrador del sistema.
+Tipo de usuario	Administrador del sistema.
+Formacion	Analista de sistemas.
+Habilidades	Conocimientos basicos de navegacion en la Web y manejo de dispositivos moviles.
+Conocimientos en el analisis y diseno de sistemas informaticos.
+Experiencia con este tipo de aplicaciones	Este tipo de usuario esta acostumbrado al uso de dispositivos moviles y ha tenido contacto con computadores para navegar en la web.
+Posee experiencia en el analisis y administracion de sistemas.
+Necesidades claves	 	Realizar la configuracion general y mantenimiento del sistema.
+
+Tabla 2. Descripcion organismos de atencion
+Tipo de usuario	Organismos de atencion
+Formacion	Variada
+Habilidades	Conocimientos basicos de navegacion en la Web y manejo de dispositivos moviles.
+Experiencia con este tipo de aplicaciones	Este tipo de usuario esta acostumbrado al uso de dispositivos moviles y ha tenido contacto con computadores para navegar en la web.
+Necesidades claves	 	Registrar la empresa en la plataforma de servicios 
+Configurar tipo de servicios a prestar y radio de accion donde presta dichos servicios.
+Adscripcion de unidades de atencion. 
+Gestion de la afiliacion de los usuarios finales.
+Establecer mecanismos de colaboracion con otras unidades de adscripcion registradas en la plataforma
+<pagina 015>
+Tabla 3. Descripcion operadores del centro de atencion
+Tipo de usuario	Operadores del centro de atencion
+Formacion	Variada
+Habilidades	Conocimientos basicos de navegacion en la Web y manejo de dispositivos moviles.
+Experiencia con este tipo de aplicaciones	Este tipo de usuario esta acostumbrado al uso de dispositivos moviles y ha tenido contacto con computadores para navegar en la web.
+Necesidades claves	 	Gestion y seguimiento de solicitudes de asistencia.
+Visualizar estadistica de eventos reportados.
+Gestion de unidades de atencion.
+Soporte automatizado para la asignacion de unidades de atencion
+Gestion de colaboracion con otras unidades de atencion de la plataforma
+
+Tabla 4. Descripcion responsables unidad de atencion
+Tipo de usuario	Responsable unidad de atencion
+Formacion	Ninguna
+Habilidades	Conocimientos basicos en manejo de dispositivos moviles.
+Experiencia con este tipo de aplicaciones	Este tipo de usuario esta acostumbrado al uso de dispositivos moviles.
+Necesidades claves	 	Conocer las coordenadas,  informacion  del evento y perfil del usuario que solicita la atencion.
+Comunicacion rapida y eficiente con el centro de atencion.
+Reportar continuamente las coordenadas GPS al Organismo de adscripcion
+
+Tabla 5. Descripcion cliente (usuario final)
+Tipo de usuario	Cliente (Usuario final).
+Formacion	Ninguna.
+Habilidades	Conocimientos basicos en manejo de dispositivos moviles.
+Experiencia con este tipo de aplicaciones	Este tipo de usuario esta acostumbrado al uso de dispositivos moviles.
+Necesidades claves	 	Tener a disposicion panel de posibles alarmas a generar.
+Solicitar afiliacion a los diferentes organismos de atencion que existen dentro del sistema.
+Realizar solicitudes de asistencia en base a los organismos de atencion a los cuales se encuentra afiliado.
+Visualizar en tiempo real el seguimiento de la(s) unidad(es) asignadas a la solicitud realizada.
+Visualizar historicos de los eventos reportados.
+Realizar la evaluacion del servicio recibido.
+
+<pagina 016>
+4.	Caso de uso
+En el siguiente caso de uso, se representan los requerimientos generales del sistema, los procesos a realizar y sus actores.
+
+
+ 
+Ilustracion 1. Caso de uso del sistema
+<subcapitulo 502 - Casos de Uso>
+ESPECIFICACIoN DE CASO DE USO DEL SISTEMA
+Descripcion	Representa la interaccion general usuario sistema.
+Actores	1.	Administrador del sistema
+2.	Organismos de atencion
+3.	Operador del centro de atencion
+4.	Unidad de atencion
+5.	Cliente.
+Flujo normal	1.	Configuracion del sistema: Este proceso engloba todo lo relacionado a la creacion de categorias de servicios, formularios para afiliacion y la administracion de permisos de los distintos usuarios, dicho proceso puede ser ejecutado unica y exclusivamente por el administrador del sistema.
+2.	Configuracion de cuenta: Todos los usuarios tienen acceso a esta tarea, pero el organismo de atencion a diferencia de los demas puede configurar su perfil indicando la informacion que se mostrara en el catalogo, ejemplo: Una breve descripcion de si mismo y su categoria de servicio.
+3.	Consulta de estadisticas: Todo organismo dentro del sistema tendra acceso a su estadistica de atencion, la cual refleja todo lo relacionado a las solicitudes por parte de los cliente, historico y calificaciones.
+4.	Afiliaciones: Los organismos podran registrar y afiliar los distintos operadores y usuarios de atencion, paralelamente a este podra aceptar o rechazar las solicitudes de afiliacion de los clientes.
+5.	Asignacion de unidades de atencion: Los operadores a traves del panel de atencion podran tener control de la gestion de las solicitudes de atencion siendo los responsables de las asignaciones de unidades.
+6.	Seguimiento a eventos: Acompanando al punto anterior, el operador podra contemplar en tiempo real como van sucediendo las atenciones a traves del panel, y siempre que desee podra consultar el historico.
+7.	Atencion a eventos: Las unidades de atencion podran aceptar, rechazar o cancelar las diferentes solicitudes de atencion que reciban, asi como tambien indicar cuando una atencion ha culminado exitosamente.
+8.	Actualizacion de status y coordenadas GPS: El usuario responsable de la unidad de atencion a traves de su dispotivio movil reportara en todo momento su status y coordenadas GPS, las cuales son de sumo interes para una correcta gestion de atencion.
+9.	Solicitar atencion: En este proceso el usuario decide reportar un suceso ocurrido, enviando informacion de su perfil y coordenadas GPS.
+10.	Calificar servicio: Una vez finalizada la atencion el usuario tendra la opcion de calificar el servicio recibido.
+Flujo alterno	Mensajes de errores cuando:
+-	Los usuarios no cumplen los niveles de autentificacion y/o validez al ingresar al sistema.
+-	No se cumple con los campos obligatorios dentro de los formularios.
+
+
+<pagina 017>
+<subcapitulo 503 - Diseno>
+Diseno del sistema
+
+1.	Esquema general del sistema
+En la siguiente ilustracion, se puede observar un esquema del sistema, con sus funcionalidades y usuarios. Esta aplicacion tendra una aplicacion web y otra  movil.
+
+ 
+Ilustracion 2. Esquema general del sistema
+2.	Modelo base de datos
+A fin de dar soporte a los conceptos que estan acordes al alcance del trabajo, fue necesario disenar una base de datos que almacene informacion sobre los usuarios, sus solicitudes de atencion (alarmas) representadas en el mapa de acuerdo a su ubicacion, categoria de servicio y equipos de trabajo.
+A continuacion se un diagrama de clases de dicho diseno, recordando que la base de datos seleccionada en la implementacion es de naturaleza NoSQL, la cual se caracteriza por poseer un esquema libre y la falta de normalizacion.
+
+ 
+Ilustracion 3. Diagrama de clases de la base de datos.
+3.	Diagrama  de procesos de negocio.
+ Business Process Model and Notation (BPMN) es una notacion grafica que describe la logica de los pasos de un proceso de negocio. Esta notacion ha sido especialmente disenada para coordinar la secuencia de los procesos y los mensajes que fluyen entre los participantes de las diferentes actividades. 
+BPMN proporciona un lenguaje comun para que las partes involucradas puedan comunicar los procesos de forma clara, completa y eficiente. De esta forma BPMN define la notacion y semantica de un Diagrama de Procesos de Negocio (Business Process Diagram, BPD). 
+BPD un diagrama disenado para representar graficamente la secuencia de todas las actividades que ocurren durante un proceso, basado en la tecnica de  Flow Chart , incluye ademas toda la informacion que se considera necesaria para el analisis (Bizagi, 2014).
+ 
+Ilustracion 4. Diagrama BPMN general del sistema
+
+
+<pagina 018> 
+Ilustracion 5. Diagrama BPMN detalle del sistema
+Implementacion del sistema
+En este punto se convierte finalmente el diseno en codigo escogiendo para ellos las herramientas que mejor se adapten al proyecto. En este caso, parte de los requerimientos para el desarrollo del proyecto expresan que el prototipo debe estar disponible tanto para plataforma web como movil, por lo tanto, 
+se escogieron las siguientes herramientas de apoyo:
+1.	Stack MEAN (Mongo-Express-Angular-Node)
+En los ultimos anos se han puesto muy de moda tecnologias como MongoDB, Node.js y AngularJS, lo que ha hecho que haya surgido una nueva corriente para la construccion de aplicaciones web rapidas, robustas y mantenibles usando las tecnologias de MongoDB, Express, AngularJS y Node.js. El uso de estas 4 tecnologias 
+juntas conforman el llamado "stack MEAN" que tienen como nexo comun la utilizacion del mismo lenguaje de programacion (JavaScript). Por tanto con estas 4 tecnologias se tiene todo lo necesario para desarrollar aplicaciones web: Frontend, Backend y Base de Datos.
+a)	MongoDB
+Es un gestor de base de datos NoSQL orientada a documentos, el cual almacena objetos en formato JSON en vez de filas. Se caracteriza por su alta escalabilidad, flexibilidad y poseer aspectos de bases de datos relacionales, tales como: indices, consultas por rango y ordenamiento, ademas, da soporte al mapeo de datos y operaciones geoespaciales (Chodorow, K. y Dirolf, M, 2013).
+b)	Express
+Express es un framework realizado en NodeJs muy ligero y flexible que proporciona un conjunto muy robusto de facilidades para crear facilmente servidores web y recibir peticiones HTTP; por tanto, permite desarrollar API REST de forma muy rapida (Strongloop, 2017).  
+c)	AngularJS
+ Es un framework Javascript de codigo abierto, desarrollado por Google, que facilita la creacion de aplicaciones de una sola pagina  (Gury P. y Ollivier S, 2016). AngularJS se basa en el patron de diseno Modelo-Vista-Controlador para obtener una clara separacion entre la logica, las interfaces y el manejo de los datos.
+Ademas, sincroniza estos datos con la interfaz, de tal forma que las actualizaciones se sincronizan automaticamente (Green, B. y Seshadri, S, 2013).
+d)	NodeJS
+NodeJS es un entorno de ejecucion para JavaScript construido con el motor de JavaScript V8 de Chrome. Node.js usa un modelo de operaciones E/S sin bloqueo y orientado a eventos, que lo hace liviano y eficiente. El ecosistema de paquetes de Node.js, npm, es el ecosistema mas grande de librerias de codigo abierto en el mundo (Strongloop, 2017).  
+ Como funciona MEAN?
+Como se menciono, con el uso de estas 4 tecnologias se tiene todo lo necesario (Frontend, Backend y Base de Datos) para desarrollar una aplicacion web, en la siguiente imagen se podra observar el flujo de las aplicaciones web realizadas con MEAN.
+ 
+<pagina 019>
+Ilustracion 6. Arquitectura stack mean
+2.	 Android
+Android es un sistema operativo basado en el nucleo Linux. Fue disenado principalmente para dispositivos moviles con pantalla tactil, como telefonos inteligentes y tabletas. Inicialmente fue desarrollado por Android Inc., empresa que Google respaldo economicamente y mas tarde, en 2005, compro.
+El sistema operativo proporciona todas las interfaces necesarias para desarrollar aplicaciones que accedan a las funciones del telefono (como el GPS, las llamadas, la agenda, etc.) de una forma muy sencilla en un lenguaje de programacion muy conocido como es Java.
+Esta sencillez, junto a la existencia de herramientas de programacion gratuitas, hacen que una de las cosas mas importantes de este sistema operativo sea la cantidad de aplicaciones disponibles, que extienden casi sin limites la experiencia del usuario (Girones, J. 2013).
+Evaluacion del sistema
+Una vez finalizado el desarrollo del sistema se realizaron pruebas para garantizar la calidad de los servicios prestados. Dichas pruebas se realizaron en primera instancia con los usuarios finales basandose en los requerimientos iniciales para asegurar que todos los servicios prestados por el sistema estuvieran acorde a lo requerido, para ello se realizaron los siguientes metodos de prueba:
+1. Thinking aloud: Los usuarios interactuaron con el prototipo y expresaron sus pensamientos en voz alta acerca del mismo, acerca de sus aspectos de usabilidad y los conceptos implementados.
+2. Metodo del conductor: A diferencia del metodo anterior, el evaluador conduce al usuario durante su interaccion con el sistema para asegurar que evalue todos sus aspectos.
+El prototipo fue mostrado a los usuarios para que realizaran su respectiva evaluacion utilizando los metodos mencionados anteriormente, dando un total de 5 revisiones, incluyendo la validacion final por parte del cliente y los usuarios finales, permitiendo evaluar el diseno y los conceptos en etapas tempranas del desarrollo, ademas de validar el prototipo final.
+Interaccion #1
+a)	Identificar y reconocer los distintos tipos de usuarios y permisos
+b)	Mostrar funcionaliades basicas del sistema
+Interaccion #2
+a)	Demostrar comunicacion entre dispositivo movil (cliente) y web (central de monitoreo)
+b)	Ubicacion e identificacion de alarmas y unidades de atencion dentro del panel (mapa de google maps).
+Interaccion #3
