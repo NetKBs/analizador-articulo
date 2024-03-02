@@ -113,8 +113,7 @@ pair < string, Identificador > ExtraerArchivo::analizarExtracto(string extracto,
         }
 
     return {converter.to_bytes(w_extracto), esValido ? PALABRA : IGNORAR};
-}
-
+    }
 
  return {extracto,DESCONOCIDO};
 }
@@ -162,6 +161,7 @@ ExtraccionReturn ExtraerArchivo::procesarTexto() {
             }
             
             if (resultado.second == PALABRA) {
+                numeroPalabrasTotal++;
                 palabras.push_back({ resultado.first, paginaActual, capituloActual });
           
             } else { // ignorar
@@ -170,7 +170,7 @@ ExtraccionReturn ExtraerArchivo::procesarTexto() {
         }
     }
     
-    Contabilizados contabilizados = {numeroDeLineas, numeroDeCapitulos, numeroDePaginas};
+    Contabilizados contabilizados = {numeroDeLineas, numeroDeCapitulos, numeroDePaginas, numeroPalabrasTotal};
     return {palabras, capitulos, contabilizados};
 
 }

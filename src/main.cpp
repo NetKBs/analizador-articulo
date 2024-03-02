@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ostream>
 #include "./datos/GestorDeArchivos.hpp"
-#include "./GUI/GUI.h"
+#include "./presentacion/GUI.h"
 #include "./negocio/ExtraerArchivo.hpp"
 
 #include "./negocio/Documento.hpp"
@@ -25,12 +25,19 @@ int main (int argc, char *argv[]) {
 
     //ExtraerArchivo ex = ExtraerArchivo(articulo);
     //ex.procesarTexto();
-    //GUI gui;
-    //gui.showMenu();
+   
     
     Documento documento = Documento(articulo);
+
     //documento.mostrarCapitulos();
-    documento.mostrarIndice();
+    //documento.mostrarIndice();
+    //cout << "Capitulos: " << documento.getNumeroDeCapitulos() << endl;
+    //cout << "Paginas: " << documento.getNumeroPaginas() << endl;
+    //cout << "Lineas: " << documento.getNumeroLineas() << endl;
+    //cout << "PalabrasTotal: " << documento.getNumeroPalabrasTotal() << endl;
+
+    GUI gui(documento);
+    gui.showMenu();
 
     return 0;
 }

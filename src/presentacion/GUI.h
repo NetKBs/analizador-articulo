@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+#include "../negocio/Documento.hpp"
 
 
 /**
@@ -14,10 +14,11 @@
  */
 class GUI {
 
-       
+    private:
+        Documento documento;
 
     public: 
-        GUI();
+        GUI(Documento documento);
         ~GUI();
         void showMenu();
         void clearScreen();

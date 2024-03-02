@@ -1,9 +1,9 @@
 #include <ncurses.h>
 #include "GUI.h"
+#include "SubMenu.h"
 
+GUI::GUI(Documento documento) : documento(documento) {
 
-GUI::GUI() {
-   
     initscr();
     start_color(); // Habilitar el uso de colores
     keypad(stdscr, TRUE); // Habilitar el teclado numérico
@@ -64,10 +64,11 @@ void GUI::showMenu() {
         // Imprimir el menú
         attron(COLOR_PAIR(3));
         mvprintw(menu_y + 1, menu_x, "1. Indice De Palabras");
-        mvprintw(menu_y + 2, menu_x, "2. Capitulos");
+        mvprintw(menu_y + 2, menu_x, "2. Indice De Capitulos");
         mvprintw(menu_y + 3, menu_x, "3. Estadistica Del Documento");
         mvprintw(menu_y + 4, menu_x, "4. Busqueda De Palabras");
         mvprintw(menu_y + 5, menu_x, "5. Busqueda De Un Capitulo ");
+        mvprintw(menu_y + 6, menu_x, "6. Imprimir Documento");
         attroff(COLOR_PAIR(3));
 
         // Pintar opción actual
@@ -77,21 +78,24 @@ void GUI::showMenu() {
                 mvprintw(menu_y + 1, menu_x, "1. Indice De Palabras");
                 break;
             case 2:
-                mvprintw(menu_y + 2, menu_x, "2. Capitulos");
+                mvprintw(menu_y + 2, menu_x, "2. Indice De Capitulos");
                 break;
             case 3:
                 mvprintw(menu_y + 3, menu_x, "3. Estadistica Del Documento");
                 break;
             case 4:
-                mvprintw(menu_y + 4, menu_x, "4. Busqueda De Palabras");
+                mvprintw(menu_y + 4, menu_x, "4. Busqueda De Palabra");
                 break;
             case 5:
                 mvprintw(menu_y + 5, menu_x, "5. Busqueda De Un Capitulo ");
                 break;
+            case 6:
+                mvprintw(menu_y + 6, menu_x, "6. Imprimir Documento ");
+                break;
         }
         attroff(COLOR_PAIR(2));
 
-        mvprintw(menu_y + 6, menu_x, "Seleccione una opción (w/s/enter) ");
+        mvprintw(menu_y + 8, menu_x, "Seleccione una opción (w/s/enter) ");
         refresh();
  
         int ch = getch();
@@ -100,11 +104,11 @@ void GUI::showMenu() {
                 current_option--;
             }
         } else if (ch == 's' || ch == KEY_DOWN) {
-            if (current_option < 5) {
+            if (current_option < 6) {
                 current_option++;
             }
         } else if (ch == '\n') {
-            if (current_option >= 1 && current_option <= 5) {
+            if (current_option >= 1 && current_option <= 6) {
                 handleOption(current_option); 
             }
 
@@ -113,7 +117,7 @@ void GUI::showMenu() {
 }
 
 void GUI::handleOption(int option) {
-    
+    SubMenu submenu;
 
     switch (option) {
         case 1:
@@ -130,7 +134,12 @@ void GUI::handleOption(int option) {
             break;
 
         case 5: {
-         
+            
+           
+            break;
+        case 6:
+            
+            submenu.imprimirDocumento(documento.procesarDocumento());
             break;
         }
     }

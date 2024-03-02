@@ -14,6 +14,7 @@ class Capitulos {
     public:
         Capitulos();
         void insertarCapitulos(vector<CapituloEstructura> capitulos);
+        CapituloEstructura buscarUnCapitulo(string nombre);
         
         void mostrar();
 };

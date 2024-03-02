@@ -29,6 +29,7 @@ struct Contabilizados {
     int numeroDeLineas;
     int numeroDeCapitulos;
     int numeroDePaginas;
+    int numeroDePalabrasTotal;
 };
 
 struct ExtraccionReturn {
@@ -43,7 +44,7 @@ class ExtraerArchivo {
     private:
         string texto;
 
-        int numeroDeLineas, numeroDeCapitulos, numeroDePaginas = 0;
+        int numeroDeLineas, numeroDeCapitulos, numeroDePaginas, numeroPalabrasTotal = 0;
     
     public:
         ExtraerArchivo(string texto);
