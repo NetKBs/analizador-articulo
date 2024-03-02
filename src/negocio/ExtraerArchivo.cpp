@@ -1,4 +1,5 @@
 #include "ExtraerArchivo.hpp"
+#include "HashTable.cpp"
 
 #include <cctype>
 
@@ -119,6 +120,8 @@ pair < string, Identificador > ExtraerArchivo::analizarExtracto(string extracto,
  return {extracto,DESCONOCIDO};
 }
 
+ HashTable<string, string, string> miTabla;
+
 void ExtraerArchivo::procesarTexto() {
     istringstream streamTexto(texto);
     string linea;
@@ -153,7 +156,8 @@ void ExtraerArchivo::procesarTexto() {
             }
             
             if (resultado.second == PALABRA) {
-                cout << resultado.first << endl;
+             
+               miTabla.insert(resultado.first, paginaActual, capituloActual);
             } else { // ignorar
                 continue;
             }
@@ -162,4 +166,6 @@ void ExtraerArchivo::procesarTexto() {
     clock_t fin = clock();
     double tiempo = double(fin - inicio) / CLOCKS_PER_SEC;
     cout << "Lineas recorridas:" << numeroDeLineas << " Tiempo de ejecucion: "<< tiempo << endl;
+
+    miTabla.display();
 }

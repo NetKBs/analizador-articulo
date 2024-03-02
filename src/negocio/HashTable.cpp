@@ -1,57 +1,52 @@
-#include <iostream>
-#include <vector>
-#include <list>
-#include <tuple> 
 
-using namespace std;
+#include <map>
+#include <set>
 
-// Definición de la clase de la tabla hash
-template<typename KeyType, typename ValueType, typename ExtraType>
-class HashTable {
-private:
-    static const int TABLE_SIZE = 20000; // Tamaño de la tabla hash
-    vector<list<tuple<KeyType, ValueType, ExtraType>>> table; // Vector de listas para manejar colisiones
+#include "HashTable.h"
 
-    size_t hashFunction(const KeyType& key) {
+template <typename KeyType, typename SecondValue, typename ExtraValue>
+HashTable<KeyType, SecondValue, ExtraValue>::HashTable() {
+  table.resize(TABLE_SIZE);
+}
+
+template <typename KeyType, typename SecondValue, typename ExtraValue>
+size_t HashTable<KeyType, SecondValue, ExtraValue>::hashFunction(const KeyType& key) {
         return std::hash<KeyType>{}(key) % TABLE_SIZE;
-    }
+}
 
-public:
-    // Constructor
-    HashTable() {
-        table.resize(TABLE_SIZE);
-    }
+// Función para insertar un trío clave-valor-extra en la tabla hash
+template <typename KeyType, typename SecondValue, typename ExtraValue>
+void HashTable<KeyType, SecondValue, ExtraValue>::insert(const KeyType &key, const SecondValue &value, const ExtraValue &extra) {
+	int index = hashFunction(key);
+	table[index].push_back(make_tuple(key, value, extra));
+}
 
-    // Función para insertar un trío clave-valor-extra en la tabla hash
-    void insert(const KeyType& key, const ValueType& value, const ExtraType& extra) {
-        int index = hashFunction(key);
-        table[index].push_back(make_tuple(key, value, extra));
-    }
+// DISPLAY AJUSTADO PARA MOSTRAR PALABRAS TIPO INDICE (NO VA ACA)
+template <typename KeyType, typename SecondValue, typename ExtraValue>
+void HashTable<KeyType, SecondValue, ExtraValue>::display() {
+  for (const auto& list : table) {
+        if (!list.empty()) {
+            // Crear un mapa para almacenar la palabra, el número de ocurrenciasy las páginas 
+			map<KeyType, pair<int, set<SecondValue>>> wordMap;
 
-    // Función para mostrar todos los elementos en la tabla hash
-    void display() {
-        for (const auto& list : table) {
             for (const auto& trio : list) {
-                cout << "Clave: " << get<0>(trio) << ", Valor: " << get<1>(trio) << ", Extra: " << get<2>(trio) << endl;
+                KeyType word = get<0>(trio);
+                SecondValue page = get<1>(trio);
+
+                // Incrementar el contador de ocurrencias y añadir la página al conjunto de páginas 
+				wordMap[word].first++; wordMap[word].second.insert(page);
+            }
+
+            // Mostrar la palabra, el número de ocurrencias y las páginas
+            for (const auto& item : wordMap) {
+                cout << "Palabra: " << item.first << " - Numero de ocurrencias:" << 
+				item.second.first << " - Paginas: "; 
+				for (const auto& page :item.second.second) { 
+					cout << page << " ";
+                }
+                cout << endl;
             }
         }
     }
-};
-
-/* Ejemplo de uso
-int main() {
-    HashTable<string, int, int> miTabla;
-
-    // Insertar elementos en la tabla hash
-    miTabla.insert("Hola", 10, 44);
-    miTabla.insert("Adios", 20, 12);
-    miTabla.insert("Palabra", 30, 15);
-    miTabla.insert("Tonto", 14, 8);
-
-    // Mostrar todos los elementos en la tabla hash
-    cout << "Elementos en la tabla hash:" << endl;
-    miTabla.display();
-
-    return 0;
 }
-*/
+

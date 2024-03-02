@@ -9,17 +9,17 @@
 
 using namespace std;
 
-template<typename KeyType, typename ValueType, typename ExtraType>
+template<typename KeyType, typename SecondValue, typename ExtraValue>
 class HashTable {
 private:
-    static const int TABLE_SIZE = 20000;
-    vector<list<tuple<KeyType, ValueType, ExtraType>>> table;
+    static const int TABLE_SIZE = 30000;
+    vector<list<tuple<KeyType, SecondValue, ExtraValue>>> table;
 
     size_t hashFunction(const KeyType& key);
 
 public:
     HashTable();
-    void insert(const KeyType& key, const ValueType& value, const ExtraType& extra);
+    void insert(const KeyType& key, const SecondValue& value, const ExtraValue& extra);
     void display();
 };
 
