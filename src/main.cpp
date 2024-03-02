@@ -21,8 +21,8 @@ int main (int argc, char *argv[]) {
 
     ExtraerArchivo ex = ExtraerArchivo(articulo);
     ex.procesarTexto();
-    GUI gui;
-    gui.showMenu();
+    //GUI gui;
+    //gui.showMenu();
     
     return 0;
 }
