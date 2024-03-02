@@ -69,6 +69,14 @@ void Indice::insertarPalabras(vector<PalabraEstructura> palabras) {
 	}
 }
 
+// Verificar palabra e insertar en el atributo llavero
+void Indice::verificarInsertarPalabra(const std::string &palabra) {
+    if (!buscarPalabraEnLlavero(palabra)) {
+        llavero.push_back(palabra);
+        std::sort(llavero.begin(), llavero.end()); // Ordenar el llavero alfabéticamente
+    }
+}
+
 void Indice::mostrarIndice() {
 	tabla.display();
 }

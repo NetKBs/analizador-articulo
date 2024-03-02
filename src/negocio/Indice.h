@@ -32,7 +32,7 @@ public:
     //Nuevo Agregado
     void insertarPalabras(vector<PalabraEstructura> palabras);
     void mostrarIndice();
-    
+    void verificarInsertarPalabra(const std::string &palabra);
     void agregarDato(const std::string& palabra, int pagina, int capitulo);
     void construirIndice();
     
