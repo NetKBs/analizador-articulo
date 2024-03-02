@@ -22,7 +22,7 @@ void Documento::agregarCapitulos(vector<CapituloEstructura> capitulos) {
 
 void Documento::mostrarCapitulos() {
     this -> capitulos.mostrar();
-}
+} 
 
 int Documento::getNumeroDeCapitulos() {
     return this -> numeroDeCapitulos;
