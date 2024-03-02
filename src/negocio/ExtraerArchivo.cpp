@@ -120,16 +120,17 @@ pair < string, Identificador > ExtraerArchivo::analizarExtracto(string extracto,
  return {extracto,DESCONOCIDO};
 }
 
- HashTable<string, string, string> miTabla;
 
-void ExtraerArchivo::procesarTexto() {
+
+ExtraccionReturn ExtraerArchivo::procesarTexto() {
     istringstream streamTexto(texto);
     string linea;
     pair < string, Identificador > resultado;
     string paginaActual;
     string capituloActual;
 
-    clock_t inicio = clock();
+    vector <CapituloEstructura> capitulos;
+    vector <PalabraEstructura> palabras;
 
     while (std::getline(streamTexto, linea)) {
         ++numeroDeLineas; // contabilizamos las líneas
@@ -146,26 +147,31 @@ void ExtraerArchivo::procesarTexto() {
             if (palabra.find("<pagina") != string::npos || palabra.find("<capitulo") != string::npos) {
                 Identificador id = palabra.find("<pagina") != string::npos ? PAGINA : CAPITULO;
                 resultado = analizarExtracto(linea, id);
+                
                 if (resultado.second == PAGINA) {
                     paginaActual = resultado.first;
+                    numeroDePaginas++;
+
                 } else if (resultado.second == CAPITULO) {
                     capituloActual = resultado.first;
+                    numeroDeCapitulos++;
+                    capitulos.push_back({ resultado.first, paginaActual });
                 }
+
             } else if (palabra.find("<sub") != string::npos) {
                 break;
             }
             
             if (resultado.second == PALABRA) {
-             
-               miTabla.insert(resultado.first, paginaActual, capituloActual);
+                palabras.push_back({ resultado.first, paginaActual, capituloActual });
+          
             } else { // ignorar
                 continue;
             }
         }
     }
-    clock_t fin = clock();
-    double tiempo = double(fin - inicio) / CLOCKS_PER_SEC;
-    cout << "Lineas recorridas:" << numeroDeLineas << " Tiempo de ejecucion: "<< tiempo << endl;
+    
+    Contabilizados contabilizados = {numeroDeLineas, numeroDeCapitulos, numeroDePaginas};
+    return {palabras, capitulos, contabilizados};
 
-    miTabla.display();
 }

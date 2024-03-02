@@ -2,6 +2,7 @@
 #define EXTRAER_ARCHIVO_H
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 // Ayuda a identificar el tipo de procesamiento que se le dará a un texto
@@ -13,19 +14,42 @@ enum Identificador {
     IGNORAR // no representa una palabra válida
 };
 
+struct CapituloEstructura{
+    string nombre;
+    string paginaInicio;
+};
+
+struct PalabraEstructura{
+    string palabra;
+    string pagina;
+    string capitulo;
+};
+
+struct Contabilizados {
+    int numeroDeLineas;
+    int numeroDeCapitulos;
+    int numeroDePaginas;
+};
+
+struct ExtraccionReturn {
+    vector<PalabraEstructura> palabras;
+    vector<CapituloEstructura> capitulos;
+    Contabilizados contabilizados;
+};
+
+
 class ExtraerArchivo {
 
     private:
         string texto;
 
-        int numeroDeLineas = 0;
+        int numeroDeLineas, numeroDeCapitulos, numeroDePaginas = 0;
     
     public:
         ExtraerArchivo(string texto);
-        void procesarTexto();
+        ExtraccionReturn procesarTexto();
         pair<string, Identificador> analizarExtracto(string extracto, Identificador identificador);
 
-        int getNumeroLineas();
 };
 
 #endif

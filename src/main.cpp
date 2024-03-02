@@ -4,6 +4,8 @@
 #include "./GUI/GUI.h"
 #include "./negocio/ExtraerArchivo.hpp"
 
+#include "./negocio/Documento.hpp"
+
 using namespace std;
 
 int main (int argc, char *argv[]) {
@@ -19,10 +21,13 @@ int main (int argc, char *argv[]) {
         return 1;
     }
 
-    ExtraerArchivo ex = ExtraerArchivo(articulo);
-    ex.procesarTexto();
+    //ExtraerArchivo ex = ExtraerArchivo(articulo);
+    //ex.procesarTexto();
     //GUI gui;
     //gui.showMenu();
     
+    Documento documento = Documento(articulo);
+    documento.mostrarCapitulos();
+
     return 0;
 }
