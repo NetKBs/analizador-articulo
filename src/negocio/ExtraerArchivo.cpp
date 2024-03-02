@@ -38,84 +38,7 @@ pair < string, Identificador > ExtraerArchivo::analizarExtracto(string extracto,
 
     }
 
-    // Identificar si se trata de una palabra válida
-   /* if (identificador == PALABRA) {
-        if (extracto.empty()) return {extracto,IGNORAR};
 
-        wstring acentos = L"áéíóúÁÉÍÓÚüÜñÑ";
-        wchar_t cEspecialesValidosApertura[] = {L'¡', L'¿',L'('};
-        wchar_t cEspecialesValidosCierre[] = {L'!', L'?', L')'};
-
-        wstring w_extracto = converter.from_bytes(extracto);
-
-         // Verificar si el texto contiene caracteres no validos
-        for (int i = 0; i < w_extracto.size(); i++) {
-
-            wchar_t c = w_extracto[i];
-            bool esCaracterValido = false;
-            
-            for (int j = 0; j < 3; j++) {
-                if(cEspecialesValidosApertura[j] == c || cEspecialesValidosCierre[j] == c || c == L',' || c == L'.' || c == L':') {
-                    esCaracterValido = true;
-                    break;
-                }
-            }
-           
-            if (!iswalpha(c) && !esCaracterValido && acentos.find(c) == wstring::npos) {
-                return {extracto, IGNORAR};
-            }
-
-            // Verificar si . , : están en medio de la palabra
-            if ((c == L',' || c == L'.' || c == L':') && i != w_extracto.size() - 1) {
-                return {extracto, IGNORAR};
-            }
-        }
-
-        wchar_t ultimoCaracter = w_extracto[w_extracto.size() - 1];
-        
-        // Remover los . , :
-        if (ultimoCaracter == L',' || ultimoCaracter == L'.' || ultimoCaracter ==L':') {
-            w_extracto = w_extracto.substr(0, w_extracto.size() - 1);
-            if (w_extracto.empty()) return {extracto,IGNORAR};
-        }
-
-        // Verificar si es un enlistamiento tipo a) b) c)...
-        if (ultimoCaracter == L')') {
-            wstring antesParentesis = w_extracto.substr(0, w_extracto.size()-1);
-
-            if (all_of(antesParentesis.begin(), antesParentesis.end(), ::isalpha)) {
-                if (antesParentesis.size() < 2) {
-                    return {extracto, IGNORAR};
-                }
-            }
-        }
-
-
-        // Manejar los carácteres válidos con apertura y cierre
-        for (int i=0; i < 3; i++) {
-            size_t posApertura = w_extracto.find(cEspecialesValidosApertura[i]);
-                if (posApertura != wstring::npos) {
-                    if (posApertura != 0) {
-                        return {extracto, IGNORAR};
-                    }
-                    w_extracto = w_extracto.substr(1);
-                }
-
-                size_t posCierre = w_extracto.find(cEspecialesValidosCierre[i]);
-                if (posCierre != wstring::npos) {
-                    if (posCierre != extracto.size() - 1) {
-                        return {extracto, IGNORAR};
-                    }
-                w_extracto = w_extracto.substr(0, w_extracto.size() - 1);
-            }
-        }
-        if (w_extracto.empty()) return {extracto,IGNORAR};
-
-
-        return {converter.to_bytes(w_extracto),PALABRA};
-    }*/
-
-    
     if (identificador == PALABRA) {
         if (extracto.empty()) return {extracto,IGNORAR};
 
@@ -228,10 +151,8 @@ void ExtraerArchivo::procesarTexto() {
             } else if (palabra.find("<sub") != string::npos) {
                 break;
             }
-
-            if (resultado.second == DESCONOCIDO) { // error
-                cout << "Error:" << resultado.first << endl;
-            } else if (resultado.second == PALABRA) {
+            
+            if (resultado.second == PALABRA) {
                 cout << resultado.first << endl;
             } else { // ignorar
                 continue;
