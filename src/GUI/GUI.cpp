@@ -56,8 +56,8 @@ void GUI::showMenu() {
         mvprintw(menu_y - 1, menu_x - 1, "+----------------------------------------+");
         mvprintw(menu_y + 10, menu_x - 1, "+----------------------------------------+");
         for (int i = 0; i < 11; ++i) {
-            mvprintw(menu_y + i, menu_x - 1, "|");
-            mvprintw(menu_y + i, menu_x + 40, "|");
+            mvprintw(menu_y + i, menu_x - 1, "*");
+            mvprintw(menu_y + i, menu_x + 40, "*");
         }
         attroff(COLOR_PAIR(3));
 

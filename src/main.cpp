@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ostream>
 #include "./datos/GestorDeArchivos.hpp"
-
+#include "./GUI/GUI.h"
 #include "./negocio/ExtraerArchivo.hpp"
 
 using namespace std;
@@ -21,6 +21,8 @@ int main (int argc, char *argv[]) {
 
     ExtraerArchivo ex = ExtraerArchivo(articulo);
     ex.procesarTexto();
+    GUI gui;
+    gui.showMenu();
     
     return 0;
 }
