@@ -1,32 +1,3 @@
-/*#ifndef HASHTABLE_H
-#define HASHTABLE_H
-
-#include <iostream>
-#include <vector>
-#include <list>
-#include <tuple> 
-#include <functional> // Para std::hash
-
-using namespace std;
-
-template<typename KeyType, typename SecondValue, typename ExtraValue>
-class HashTable {
-private:
-    static const int TABLE_SIZE = 30000;
-    size_t hashFunction(const KeyType& key);
-    
-public:
-    vector<list<tuple<KeyType, SecondValue, ExtraValue>>> table;
-
-public:
-    HashTable();
-    void insert(const KeyType& key, const SecondValue& value, const ExtraValue& extra);
-    void display();
-};
-
-
-#endif // HASHTABLE_H*/
-
 
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
@@ -59,6 +30,13 @@ public:
         int index = hashFunction(key);
         table[index].push_back(make_tuple(key, value, extra));
     }
+    // Función para buscar un elemento por clave y devolver la lista completa
+    list<tuple<KeyType, SecondValue, ExtraValue>> buscar(const KeyType& key) {
+        int index = hashFunction(key);
+        return table[index];
+    }
+
+
     void display() {
         for (const auto& list : table) {
             if (!list.empty()) {

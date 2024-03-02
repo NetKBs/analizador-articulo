@@ -77,8 +77,9 @@ void Indice::verificarInsertarPalabra(const std::string &palabra) {
     }
 }
 
-void Indice::mostrarIndice() {
-	tabla.display();
+
+vector<std::string> Indice::getLlavero() {
+    return llavero;
 }
 
 

@@ -22,8 +22,17 @@ void Documento::agregarPalabra(vector<PalabraEstructura> palabras) {
     this -> indice.insertarPalabras(palabras);
 }
 
-void Documento::mostrarIndice() {
-    this -> indice.mostrarIndice();
+void Documento::getIndice() {
+    cout << "hola"<< endl;
+    vector<string> llavero = this -> indice.getLlavero();
+    for (string llave: llavero) {
+        cout << llave << endl;
+       list<tuple<string, string, string>> palabras = indice.tabla.buscar(llave);
+
+       for (const auto& tupla : palabras) {
+           cout << get<0>(tupla) << " " << get<1>(tupla) << " " << get<2>(tupla) << endl;
+       }
+    }
 }
 
 void Documento::agregarCapitulos(vector<CapituloEstructura> capitulos) {
