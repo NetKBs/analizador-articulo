@@ -14,6 +14,16 @@ void Documento::procesarTexto() {
     this -> numeroDeCapitulos = resultados.contabilizados.numeroDeCapitulos;
 
     agregarCapitulos(resultados.capitulos);
+    agregarPalabra(resultados.palabras);
+
+}
+
+void Documento::agregarPalabra(vector<PalabraEstructura> palabras) {
+    this -> indice.insertarPalabras(palabras);
+}
+
+void Documento::mostrarIndice() {
+    this -> indice.mostrarIndice();
 }
 
 void Documento::agregarCapitulos(vector<CapituloEstructura> capitulos) {

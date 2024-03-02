@@ -21,13 +21,16 @@ int main (int argc, char *argv[]) {
         return 1;
     }
 
+  
+
     //ExtraerArchivo ex = ExtraerArchivo(articulo);
     //ex.procesarTexto();
     //GUI gui;
     //gui.showMenu();
     
     Documento documento = Documento(articulo);
-    documento.mostrarCapitulos();
+    //documento.mostrarCapitulos();
+    documento.mostrarIndice();
 
     return 0;
 }

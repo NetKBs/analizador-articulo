@@ -1,8 +1,8 @@
+#include "HashTable.h"
 
 #include <map>
 #include <set>
 
-#include "HashTable.h"
 
 template <typename KeyType, typename SecondValue, typename ExtraValue>
 HashTable<KeyType, SecondValue, ExtraValue>::HashTable() {

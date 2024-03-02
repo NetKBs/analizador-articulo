@@ -2,6 +2,7 @@
 #define DOCUMENTO_HPP
 
 #include "Capitulos.hpp"
+#include "Indice.h"
 #include "ExtraerArchivo.hpp"
 
 #include <iostream> 
@@ -12,7 +13,7 @@ class Documento {
     private:
         string texto;
         int numeroDeLineas, numeroDeCapitulos, numeroDePaginas = 0;
-
+        Indice indice;
         Capitulos capitulos;
         ExtraerArchivo extractor;
 
@@ -24,6 +25,9 @@ class Documento {
         
         void agregarCapitulos(vector<CapituloEstructura> capitulos);
         void mostrarCapitulos();
+
+        void agregarPalabra(vector<PalabraEstructura> palabras);
+        void mostrarIndice();
 
         void setNumeroLineas(int numeroDeLineas);
         int getNumeroLineas();

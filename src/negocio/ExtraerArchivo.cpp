@@ -1,5 +1,4 @@
 #include "ExtraerArchivo.hpp"
-#include "HashTable.cpp"
 
 #include <cctype>
 
