@@ -28,7 +28,7 @@ public:
 
     void imprimirDocumento(string textoProcesado);
     void imprimirIndicePalabras(vector<map<string, set<string>>> indicePalabras);
-
+    void buscarUnCapitulo();
 
 };
 

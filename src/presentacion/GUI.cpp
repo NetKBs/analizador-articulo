@@ -134,7 +134,7 @@ void GUI::handleOption(int option) {
             break;
 
         case 5: {
-            
+            submenu.buscarUnCapitulo();
            
             break;
         case 6:

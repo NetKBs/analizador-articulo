@@ -208,3 +208,26 @@ void SubMenu::imprimirIndicePalabras(vector<map<string, set<string>>> indicePala
         }
     }
 }
+
+void SubMenu::buscarUnCapitulo(){
+  int fila = 3;
+  int columna = (COLS - 60) / 2;
+  int indice = 0;
+  int pagina = 0;
+  int elementosPorPagina = LINES - 10; // Calcula cuántos elementos caben en una página
+
+  imprimirMarco("");
+  attron(COLOR_PAIR(1));
+  echo(); // Habilitar el eco de los caracteres ingresados por el usuariomvprin
+  mvprintw(LINES / 2 - 10, COLS / 2 - 10, "BUSCAR UN CAPITULO");
+  mvprintw(LINES / 2 - 10 + 2, COLS / 2 - 15, ">>> ");
+  attroff(COLOR_PAIR(1));
+
+  char userInput[256];
+  getnstr(userInput, sizeof(userInput) - 1);
+  noecho(); // Deshabilitar el eco de los caracteres
+
+
+
+
+}
