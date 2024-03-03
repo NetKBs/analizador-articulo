@@ -29,15 +29,17 @@ void Indice::verificarInsertarPalabra(const std::string &palabra) {
 
 
 // Función para eliminar coincidencias parciales de una palabra en la tabla hashing
-bool Indice::eliminarPalabraIndice(const string &palabra) {
+pair <bool, int> Indice::eliminarPalabraIndice(const string &palabra) {
     int posicion = tabla.hashFunction(palabra);
     list<tuple<string, string, string>> lista = tabla.table[posicion];
     bool seElimino = false;
+    int numEliminados = 0;
 
     for (auto it = lista.begin(); it != lista.end(); ) {
         if ( std::search(std::get<0>(*it).begin(), std::get<0>(*it).end(), palabra.begin(), palabra.end()) != std::get<0>(*it).end() ) {
             it = lista.erase(it);
             seElimino = true;
+            numEliminados++;
         } else {
             ++it;
         }
@@ -47,9 +49,9 @@ bool Indice::eliminarPalabraIndice(const string &palabra) {
         tabla.table[posicion] = lista;
         // eliminamos la palabta del llavero
         llavero.erase(std::remove(llavero.begin(), llavero.end(), palabra), llavero.end());
-        return true;
+        return {true, numEliminados};
     }
-    return false;
+    return {false, 0};
     
 }
 

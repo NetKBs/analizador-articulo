@@ -29,6 +29,8 @@ public:
     void imprimirDocumento(string textoProcesado);
     void imprimirIndicePalabras(vector<map<string, set<string>>> indicePalabras);
 
+    void imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, int numeroDePaginas, int numeroPalabrasTotal, int numeroDePalabrasUnicas);
+
 
 };
 

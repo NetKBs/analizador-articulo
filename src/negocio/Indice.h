@@ -27,7 +27,7 @@ public:
     void verificarInsertarPalabra(const std::string &palabra);
     vector<pair<string, string>> buscarOcurrenciasParciales(const string keyword);
     vector<std::string> getLlavero();
-    bool eliminarPalabraIndice(const string &palabra); 
+    pair <bool, int> eliminarPalabraIndice(const string &palabra); 
 };
 
 #endif // INDICE_H

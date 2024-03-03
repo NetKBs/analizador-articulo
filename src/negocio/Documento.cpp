@@ -58,7 +58,11 @@ void Documento::buscarPalabra(string palabra) {
 }
 
 bool Documento::eliminarPalabra(string palabra) {
-    this -> indice.eliminarPalabraIndice(palabra);
+    pair <bool, int> eliminado = this -> indice.eliminarPalabraIndice(palabra);
+    if (eliminado.first) {
+        this-> numeroPalabrasTotal -= eliminado.second;
+    }
+    return eliminado.second;
 
 }
 
@@ -70,8 +74,8 @@ void Documento::mostrarCapitulos() {
     this -> capitulos.mostrar();
 } 
 
-void Documento::getCapituloIndice(string nombreCapitulo) {
-    capitulos.buscarCapituloIndice(nombreCapitulo, indice.tabla, indice.getLlavero());
+vector<string> Documento::getCapituloIndice(string nombreCapitulo) {
+    return capitulos.buscarCapituloIndice(nombreCapitulo, indice.tabla, indice.getLlavero());
 }
 
 
