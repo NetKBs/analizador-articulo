@@ -55,6 +55,20 @@ void Documento::mostrarCapitulos() {
     this -> capitulos.mostrar();
 } 
 
+void Documento::getCapituloIndice(string nombreCapitulo) {
+    capitulos.buscarCapituloIndice(nombreCapitulo, indice.tabla, indice.getLlavero());
+}
+
+// FUNCION PARA DEPURAR 
+void Documento::getPalabra(string nombre) {
+    list<tuple<string, string, string>> palabras = indice.tabla.buscar(nombre);
+    for (const auto& trio : palabras) {
+        cout << get<0>(trio) << " - " << get<1>(trio) << " - " << get<2>(trio) << endl;
+    }
+}
+
+
+
 string Documento::procesarDocumento() {
     istringstream streamTexto(texto);
     string linea;

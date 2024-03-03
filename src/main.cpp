@@ -28,6 +28,8 @@ int main (int argc, char *argv[]) {
    
     
     Documento documento = Documento(articulo);
+    //documento.getPalabra("toda");
+   // documento.getCapituloIndice("1");
 
     //documento.mostrarCapitulos();
     //documento.mostrarIndice();
@@ -36,8 +38,8 @@ int main (int argc, char *argv[]) {
     //cout << "Lineas: " << documento.getNumeroLineas() << endl;
     //cout << "PalabrasTotal: " << documento.getNumeroPalabrasTotal() << endl;
 
-    GUI gui(documento);
-    gui.showMenu();
+    //GUI gui(documento);
+    //gui.showMenu();
 
     return 0;
 }

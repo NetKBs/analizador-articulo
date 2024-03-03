@@ -25,14 +25,15 @@ class Documento {
 
     public:
         Documento(string texto);
+
+        void getPalabra(string nombre);
         
         void agregarCapitulos(vector<CapituloEstructura> capitulos);
         void mostrarCapitulos();
+        void getCapituloIndice(string nombreCapitulo);
 
         void agregarPalabra(vector<PalabraEstructura> palabras);
         vector<map<string, set<string>>> getIndice();
-
-        
 
         void setNumeroLineas(int numeroDeLineas);
         int getNumeroLineas();
