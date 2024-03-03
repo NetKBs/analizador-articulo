@@ -209,7 +209,6 @@ void SubMenu::imprimirIndicePalabras(vector<map<string, set<string>>> indicePala
     }
 }
 
-<<<<<<< HEAD
 void SubMenu::imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, int numeroDePaginas, int numeroPalabrasTotal, int numeroDePalabrasUnicas) {
     clearScreen();
 
@@ -229,7 +228,6 @@ void SubMenu::imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, in
     
     
 }
-=======
 void SubMenu::buscarUnCapitulo(Documento documento) {
     imprimirMarco(""); // Imprime el marco inicial
     attron(COLOR_PAIR(1));
@@ -289,4 +287,3 @@ void SubMenu::imprimirConScroll(const vector<string>& lines) {
         }
     }
 }
->>>>>>> 55d9ab441ea29c1a7e0aef233c89345b4e17dcc3
