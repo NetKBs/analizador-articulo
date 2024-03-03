@@ -55,35 +55,7 @@ pair <bool, int> Indice::eliminarPalabraIndice(const string &palabra) {
     
 }
 
-
-
-
- // Función para buscar ocurrencias parciales de una palabra y devolver las páginas asociadas
-   vector<pair<string, string>> Indice::buscarOcurrenciasParciales(const string keyword) {
-       vector<pair<string, string>> ocurrencias;
-
-    list<tuple<string, string, string>> lista = tabla.buscar(keyword);
-
-    for (const auto& item : lista) {
-        string palabra = get<0>(item);
-        string pagina = get<2>(item);
-
-        // Realizar búsqueda parcial utilizando el algoritmo de KMP
-        if (palabra.find(keyword) != string::npos) {
-            ocurrencias.push_back(make_pair(palabra, pagina));
-        }
-    }
-
-        return ocurrencias;
-    }
-
-
-vector<std::string> Indice::getLlavero() {
-    return llavero;
-}
-
-// Función de búsqueda parcial utilizando el algoritmo Boyer-Moore
-void Indice::busquedaParcial(const std::string& palabra) {
+std::map<std::string, std::set<std::string>> Indice::busquedaParcial(const std::string& palabra) {
     std::vector<std::string> llavesCoincidentes;
 
     for (const std::string& llave : llavero) {
@@ -92,17 +64,22 @@ void Indice::busquedaParcial(const std::string& palabra) {
         }
     }
 
-    if (llavesCoincidentes.empty()) {
-        std::cout << "La palabra '" << palabra << "' no se encontró en el índice." << std::endl;
-    } else {
-        std::cout << "La palabra '" << palabra << "' se encontró en las siguientes páginas:" << std::endl;
-        for (const std::string& llave : llavesCoincidentes) {
-            std::list<std::tuple<std::string, std::string, std::string>> palabras = tabla.buscar(llave);
-            for (const auto& tupla : palabras) {
-                std::cout << "Palabra: " << get<0>(tupla) << " - Página: " << get<1>(tupla) << std::endl;
+    std::map<std::string, std::set<std::string>> uniqueWordsAndPages;  // Store unique words and pages
+
+    // Recorrer la tabla hash y entrar dentro del listado que contiene cada posición y revisar si las palabras que están dentro
+    // de esa lista coinciden con la palabra buscada
+    for (const std::string& llave : llavesCoincidentes) {
+        list<tuple<std::string, std::string, std::string>> palabras = tabla.buscar(llave);
+        for (const auto& tupla : palabras) {
+            if (std::search(std::get<0>(tupla).begin(), std::get<0>(tupla).end(), palabra.begin(), palabra.end()) != std::get<0>(tupla).end()) {
+                uniqueWordsAndPages[std::get<0>(tupla)].insert(std::get<1>(tupla));  // Add word and page to map
             }
         }
     }
+
+    return uniqueWordsAndPages;
 }
 
-
+vector <string> Indice::getLlavero() {
+    return llavero;
+}

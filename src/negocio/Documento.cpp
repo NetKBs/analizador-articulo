@@ -47,14 +47,8 @@ vector<map<string, set<string>>> Documento::getIndice() {
     return indicePalabras;
 }
 
-void Documento::buscarPalabra(string palabra) {
-    vector<pair<string, string>> ocurrencias = this -> indice.buscarOcurrenciasParciales(palabra);
-    if(ocurrencias.empty()) {
-        cout << "fok" << endl;
-    }
-    for (const auto& ocurrencia : ocurrencias) {
-        cout << ocurrencia.first << " - " << ocurrencia.second << endl;
-    }
+map<string, set<string>> Documento::buscarPalabra(string palabra) {
+   return indice.busquedaParcial(palabra);
 }
 
 bool Documento::eliminarPalabra(string palabra) {

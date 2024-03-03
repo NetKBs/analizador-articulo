@@ -18,7 +18,7 @@ class GUI {
         Documento documento;
 
     public: 
-        GUI(Documento documento);
+        GUI(Documento& documento);
         ~GUI();
         void showMenu();
         void clearScreen();

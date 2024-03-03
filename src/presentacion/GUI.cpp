@@ -2,7 +2,7 @@
 #include "GUI.h"
 #include "SubMenu.h"
 
-GUI::GUI(Documento documento) : documento(documento) {
+GUI::GUI(Documento& documento) : documento(documento) {
 
     initscr();
     start_color(); // Habilitar el uso de colores
@@ -10,7 +10,7 @@ GUI::GUI(Documento documento) : documento(documento) {
     init_pair(1, COLOR_WHITE, COLOR_BLACK); 
     init_pair(2, COLOR_BLACK, COLOR_WHITE);
     init_pair(3, COLOR_BLUE, COLOR_BLACK);
-    
+
     showMenu();
 }
 
@@ -25,6 +25,7 @@ void GUI::clearScreen() {
 
 
 void GUI::showMenu() {
+
     int max_y, max_x;
     int current_option = 1;
     getmaxyx(stdscr, max_y, max_x); // Obtener el tamaño de la terminal
@@ -128,7 +129,10 @@ void GUI::handleOption(int option) {
             submenu.EliminarPalabra(documento);
             break;
         case 3:
-            
+      
+            submenu.imprimirEstadisticas(documento.getNumeroDeCapitulos(), documento.getNumeroLineas(), 
+            documento.getNumeroPaginas(), documento.getNumeroPalabrasTotal(), 
+            documento.getNumeroPalabrasUnicas());
             break;
         case 4:
             

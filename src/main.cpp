@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ncurses.h>
 #include <ostream>
 #include "./datos/GestorDeArchivos.hpp"
 #include "./presentacion/GUI.h"
@@ -28,18 +29,17 @@ int main (int argc, char *argv[]) {
    
     
     Documento documento = Documento(articulo);
-
+    //documento.buscarPalabra("cont");
     //documento.getPalabra("toda");
    // documento.getCapituloIndice("1");
 
     //documento.mostrarCapitulos();
     //documento.mostrarIndice();
-    /*cout << "Capitulos: " << documento.getNumeroDeCapitulos() << endl;
-    cout << "Paginas: " << documento.getNumeroPaginas() << endl;
+    //cout << "Capitulos: " << documento.getNumeroDeCapitulos() << endl;
+    /*cout << "Paginas: " << documento.getNumeroPaginas() << endl;
     cout << "Lineas: " << documento.getNumeroLineas() << endl;
     cout << "PalabrasTotal: " << documento.getNumeroPalabrasTotal() << endl;
     cout << "PalabrasUnicas: " << documento.getNumeroPalabrasUnicas() << endl;*/
-
 
     GUI gui(documento);
     gui.showMenu();

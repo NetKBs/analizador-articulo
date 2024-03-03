@@ -212,13 +212,15 @@ void SubMenu::imprimirIndicePalabras(vector<map<string, set<string>>> indicePala
 void SubMenu::imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, int numeroDePaginas, int numeroPalabrasTotal, int numeroDePalabrasUnicas) {
     clearScreen();
     box(stdscr, 0, 0);
+    
+    int center = COLS / 2 - 9;
+    mvprintw(0, center, "ESTADISTICAS");
 
-    mvprintw(1, 1, "Estadísticas");
-    mvprintw(3, 1, "Numero de capitulos: %d", numeroDeCapitulos);
-    mvprintw(4, 1, "Numero de lineas: %d", numeroDeLineas);
-    mvprintw(5, 1, "Numero de paginas: %d", numeroDePaginas);
-    mvprintw(6, 1, "Numero de palabras totales: %d", numeroPalabrasTotal);
-    mvprintw(7, 1, "Numero de palabras unicas: %d", numeroDePalabrasUnicas);
+    mvprintw(2, 2, "Numero de capitulos: %d", numeroDeCapitulos);
+    mvprintw(3, 2, "Numero de lineas: %d", numeroDeLineas);
+    mvprintw(4, 2, "Numero de paginas: %d", numeroDePaginas);
+    mvprintw(5, 2, "Numero de palabras totales: %d", numeroPalabrasTotal);
+    mvprintw(6, 2, "Numero de palabras unicas: %d", numeroDePalabrasUnicas);
     
     getch();
 }

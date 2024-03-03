@@ -22,11 +22,11 @@ private:
 
 public:
     //Nuevo Agregado
-    void busquedaParcial(const std::string& palabra);
+    std::map<std::string, std::set<std::string>> busquedaParcial(const std::string& palabra);
     void insertarPalabras(vector<PalabraEstructura> palabras);
     void mostrarIndice();
     void verificarInsertarPalabra(const std::string &palabra);
-    vector<pair<string, string>> buscarOcurrenciasParciales(const string keyword);
+ 
     vector<std::string> getLlavero();
     pair <bool, int> eliminarPalabraIndice(const string &palabra); 
 };
