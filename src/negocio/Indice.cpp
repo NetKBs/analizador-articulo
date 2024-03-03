@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
-
+#include "HashTable.h"
 #include "Indice.h"
 
 // Función para comparar dos palabras durante el ordenamiento
@@ -80,6 +80,29 @@ void Indice::verificarInsertarPalabra(const std::string &palabra) {
 
 vector<std::string> Indice::getLlavero() {
     return llavero;
+}
+
+// Función de búsqueda parcial utilizando el algoritmo Boyer-Moore
+void Indice::busquedaParcial(const std::string& palabra) {
+    std::vector<std::string> llavesCoincidentes;
+
+    for (const std::string& llave : llavero) {
+        if (llave.find(palabra) != std::string::npos) {
+            llavesCoincidentes.push_back(llave);
+        }
+    }
+
+    if (llavesCoincidentes.empty()) {
+        std::cout << "La palabra '" << palabra << "' no se encontró en el índice." << std::endl;
+    } else {
+        std::cout << "La palabra '" << palabra << "' se encontró en las siguientes páginas:" << std::endl;
+        for (const std::string& llave : llavesCoincidentes) {
+            std::list<std::tuple<std::string, std::string, std::string>> palabras = tabla.buscar(llave);
+            for (const auto& tupla : palabras) {
+                std::cout << "Palabra: " << get<0>(tupla) << " - Página: " << get<1>(tupla) << std::endl;
+            }
+        }
+    }
 }
 
 

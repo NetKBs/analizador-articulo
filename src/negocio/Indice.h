@@ -30,6 +30,7 @@ private:
 
 public:
     //Nuevo Agregado
+    void busquedaParcial(const std::string& palabra);
     void insertarPalabras(vector<PalabraEstructura> palabras);
     void mostrarIndice();
     void verificarInsertarPalabra(const std::string &palabra);
