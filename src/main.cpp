@@ -3,8 +3,8 @@
 #include "./datos/GestorDeArchivos.hpp"
 #include "./presentacion/GUI.h"
 #include "./negocio/ExtraerArchivo.hpp"
-
 #include "./negocio/Documento.hpp"
+#include "./presentacion/GUI.h"
 
 using namespace std;
 

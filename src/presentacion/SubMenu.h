@@ -7,7 +7,7 @@
 #include <ncurses.h>
 #include <set>
 #include <vector>
-
+#include "../negocio/Documento.hpp"
 
 using namespace std;
 
@@ -28,7 +28,8 @@ public:
 
     void imprimirDocumento(string textoProcesado);
     void imprimirIndicePalabras(vector<map<string, set<string>>> indicePalabras);
-
+    void buscarUnCapitulo(Documento documento);
+    void imprimirConScroll(const vector<string>& lines);
     void imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, int numeroDePaginas, int numeroPalabrasTotal, int numeroDePalabrasUnicas);
 
 
