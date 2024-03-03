@@ -4,6 +4,7 @@
 Documento::Documento(string texto) : extractor(texto) {
     this -> texto = texto;
     procesarTexto();
+    this -> textoProcesado = procesarDocumento();
 }
 
 void Documento::procesarTexto() {
@@ -110,4 +111,8 @@ int Documento::getNumeroLineas() {
 
 int Documento::getNumeroPalabrasTotal() {
     return this -> numeroPalabrasTotal;
+}
+
+string Documento::getTextoProcesado() {
+    return this -> textoProcesado;
 }

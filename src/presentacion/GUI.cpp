@@ -139,7 +139,7 @@ void GUI::handleOption(int option) {
             break;
         case 6:
             
-            submenu.imprimirDocumento(documento.procesarDocumento());
+            submenu.imprimirDocumento(documento.getTextoProcesado());
             break;
         }
     }
