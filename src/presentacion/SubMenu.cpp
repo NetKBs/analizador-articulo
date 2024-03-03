@@ -211,23 +211,18 @@ void SubMenu::imprimirIndicePalabras(vector<map<string, set<string>>> indicePala
 
 void SubMenu::imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, int numeroDePaginas, int numeroPalabrasTotal, int numeroDePalabrasUnicas) {
     clearScreen();
-
     box(stdscr, 0, 0);
-    int max_x, max_y;
-    getmaxyx(stdscr, max_y, max_x);
-    int x = (max_x - 75) / 2;
-    mvprintw(max_y/2, x, "Estadísticas del documento:");
-    mvprintw(max_y/2+2, x, "Número de capítulos: %d", numeroDeCapitulos);
-    mvprintw(max_y/2+3, x, "Número de líneas: %d", numeroDeLineas);
-    mvprintw(max_y/2+4, x, "Número de páginas: %d", numeroDePaginas);
-    mvprintw(max_y/2+5, x, "Número de palabras totales: %d", numeroPalabrasTotal);
-    mvprintw(max_y/2+6, x, "Número de palabras únicas: %d", numeroDePalabrasUnicas);
-    mvprintw(max_y/2+8, x, "Presione 'Cualquier Tecla' para salir");
-    refresh();
+
+    mvprintw(1, 1, "Estadísticas");
+    mvprintw(3, 1, "Numero de capitulos: %d", numeroDeCapitulos);
+    mvprintw(4, 1, "Numero de lineas: %d", numeroDeLineas);
+    mvprintw(5, 1, "Numero de paginas: %d", numeroDePaginas);
+    mvprintw(6, 1, "Numero de palabras totales: %d", numeroPalabrasTotal);
+    mvprintw(7, 1, "Numero de palabras unicas: %d", numeroDePalabrasUnicas);
+    
     getch();
-    
-    
 }
+
 void SubMenu::buscarUnCapitulo(Documento documento) {
     imprimirMarco(""); // Imprime el marco inicial
     attron(COLOR_PAIR(1));
