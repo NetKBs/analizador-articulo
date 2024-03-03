@@ -64,7 +64,7 @@ void GUI::showMenu() {
         // Imprimir el menú
         attron(COLOR_PAIR(3));
         mvprintw(menu_y + 1, menu_x, "1. Indice De Palabras");
-        mvprintw(menu_y + 2, menu_x, "2. Indice De Capitulos");
+        mvprintw(menu_y + 2, menu_x, "2. Eliminar Palabra");
         mvprintw(menu_y + 3, menu_x, "3. Estadistica Del Documento");
         mvprintw(menu_y + 4, menu_x, "4. Busqueda De Palabras");
         mvprintw(menu_y + 5, menu_x, "5. Busqueda De Un Capitulo ");
@@ -78,10 +78,11 @@ void GUI::showMenu() {
                 mvprintw(menu_y + 1, menu_x, "1. Indice De Palabras");
                 break;
             case 2:
-                mvprintw(menu_y + 2, menu_x, "2. Indice De Capitulos");
+                mvprintw(menu_y + 2, menu_x, "2. Eliminar Palabra");
                 break;
             case 3:
                 mvprintw(menu_y + 3, menu_x, "3. Estadistica Del Documento");
+
                 break;
             case 4:
                 mvprintw(menu_y + 4, menu_x, "4. Busqueda De Palabra");
@@ -127,7 +128,8 @@ void GUI::handleOption(int option) {
             
             break;
         case 3:
-            
+            submenu.imprimirEstadisticas(documento.getNumeroDeCapitulos(), documento.getNumeroLineas(), documento.getNumeroPaginas(), 
+            documento.getNumeroPalabrasTotal(), documento.getNumeroPalabrasUnicas());
             break;
         case 4:
             

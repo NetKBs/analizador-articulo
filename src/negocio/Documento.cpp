@@ -140,6 +140,11 @@ int Documento::getNumeroPalabrasTotal() {
     return this -> numeroPalabrasTotal;
 }
 
+int Documento::getNumeroPalabrasUnicas() {
+    return indice.getLlavero().size();
+}
+
 string Documento::getTextoProcesado() {
     return this -> textoProcesado;
 }
+

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ostream>
 #include "./datos/GestorDeArchivos.hpp"
-//#include "./presentacion/GUI.h"
+#include "./presentacion/GUI.h"
 #include "./negocio/ExtraerArchivo.hpp"
 
 #include "./negocio/Documento.hpp"
@@ -28,7 +28,7 @@ int main (int argc, char *argv[]) {
    
     
     Documento documento = Documento(articulo);
-    documento.eliminarPalabra("permita");
+    
     //documento.getPalabra("toda");
    // documento.getCapituloIndice("1");
 
@@ -40,8 +40,8 @@ int main (int argc, char *argv[]) {
     //cout << "PalabrasTotal: " << documento.getNumeroPalabrasTotal() << endl;
 
 
-    //GUI gui(documento);
-    //gui.showMenu();
+    GUI gui(documento);
+    gui.showMenu();
 
     return 0;
 }

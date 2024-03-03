@@ -43,6 +43,7 @@ class Documento {
         int getNumeroPaginas();
         int getNumeroDeCapitulos();
         int getNumeroPalabrasTotal();
+        int getNumeroPalabrasUnicas();
 
         string getTextoProcesado();
         
