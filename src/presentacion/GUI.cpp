@@ -10,7 +10,7 @@ GUI::GUI(Documento documento) : documento(documento) {
     init_pair(1, COLOR_WHITE, COLOR_BLACK); 
     init_pair(2, COLOR_BLACK, COLOR_WHITE);
     init_pair(3, COLOR_BLUE, COLOR_BLACK);
-
+    
     showMenu();
 }
 
@@ -121,7 +121,7 @@ void GUI::handleOption(int option) {
 
     switch (option) {
         case 1:
-            
+            submenu.imprimirIndicePalabras(documento.getIndice());
             break;
         case 2:
             
@@ -138,8 +138,9 @@ void GUI::handleOption(int option) {
            
             break;
         case 6:
-            
-            submenu.imprimirDocumento(documento.procesarDocumento());
+            clearScreen();
+            submenu.imprimirDocumento(documento.getTextoProcesado());
+            refresh();
             break;
         }
     }

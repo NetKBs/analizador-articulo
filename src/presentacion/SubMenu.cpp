@@ -5,11 +5,18 @@
 #include <cstring>
 #include <ncurses.h>
 #include <sstream>
+#include <algorithm>
+
+#define SCROLL_LINE_STEP 1
+#define MARGIN 2
 
 SubMenu::SubMenu() {
   initscr();
   start_color();
-  init_pair(1, COLOR_BLUE, COLOR_BLACK);
+    init_pair(1, COLOR_WHITE, COLOR_BLACK); 
+    init_pair(2, COLOR_BLACK, COLOR_WHITE);
+    init_pair(3, COLOR_BLUE, COLOR_BLACK);
+    
 }
 
 SubMenu::~SubMenu() { endwin(); }
@@ -24,7 +31,7 @@ void SubMenu::imprimirMarco(string titulo) {
   int terminal_height = LINES; // Altura de la terminal
 
   clearScreen();
-  attron(COLOR_PAIR(1));
+  attron(COLOR_PAIR(3));
   // Top border
   mvprintw(0, 0, "+");
   for (int i = 1; i < terminal_width - 1; ++i) {
@@ -48,156 +55,156 @@ void SubMenu::imprimirMarco(string titulo) {
   refresh();
 }
 
+void addLineWithWrapping(std::vector<std::string>& lines, const std::string& line, size_t maxLineWidth) {
+    size_t start = 0;
+    while (start < line.length()) {
+        size_t end = start + maxLineWidth;
+        if (end > line.length()) end = line.length();
+
+        // Encuentra el último espacio en blanco para evitar cortar palabras
+        if (end < line.length()) {
+            size_t lastSpace = line.rfind(' ', end);
+            if (lastSpace != std::string::npos && lastSpace > start) {
+                end = lastSpace;
+            }
+        }
+
+        lines.push_back(line.substr(start, end - start));
+        start = end + ((end < line.length()) ? 1 : 0); // Saltar el espacio si no es el final de la línea
+    }
+}
+
+
 void SubMenu::imprimirDocumento(string textoProcesado) {
     
+    // Convertir el texto procesado en un vector de strings, cada uno representando una línea
+    std::istringstream iss(textoProcesado);
+    std::string line;
+    std::vector<std::string> lines;
+    while (getline(iss, line)) {
+        
+        // Verifica si la línea se ajusta dentro del ancho del marco
+        int maxLineWidth = COLS - 2 * MARGIN; // Ajuste según el ancho del marco
+        if (line.length() <= maxLineWidth) {
+            lines.push_back(line);
+        } else {
+            // Si la línea es más larga, divídela en sublíneas
+            for (size_t i = 0; i < line.length(); i += maxLineWidth) {
+                lines.push_back(line.substr(i, maxLineWidth));
+            }
+        }
+    }
+    // Inicialización para capturar eventos del mouse
+    mousemask(ALL_MOUSE_EVENTS | REPORT_MOUSE_POSITION, NULL);
+    keypad(stdscr, TRUE);
+    MEVENT event;
+
+    int scroll_offset = 0; // Esto va a llevar el registro de cuánto hemos scrolleado
+
+    // Bucle principal para mostrar el documento y manejar el scroll
+    bool quit = false;
+    while (!quit) {
+        clearScreen(); // Limpia la pantalla antes de volver a dibujar
+        imprimirMarco("Titulo del Documento"); // Asegúrate de que este método no limpie la pantalla
+
+        // Imprimir el documento desde el scroll_offset
+        int max_line = LINES - 3; // Ajuste para el espacio vertical del marco
+        for (int i = 0; i < max_line && (i + scroll_offset) < lines.size(); ++i) {
+            mvprintw(i + 2, MARGIN, "%s", lines[i + scroll_offset].c_str()); // Ajusta para el margen horizontal
+        }
+        // Capturar eventos
+        int ch = getch();
+        switch (ch) {
+            case KEY_MOUSE:
+                if (getmouse(&event) == OK) {
+                    if (event.bstate & BUTTON4_PRESSED) { // Scroll hacia arriba
+                        scroll_offset -= SCROLL_LINE_STEP;
+                        if (scroll_offset < 0) scroll_offset = 0;
+                    } else if (event.bstate & BUTTON5_PRESSED) { // Scroll hacia abajo
+                        scroll_offset += SCROLL_LINE_STEP;
+                        if (scroll_offset > lines.size() - max_line) scroll_offset = lines.size() - max_line;
+                    }
+                }
+                break;
+            case 'q': // Presionar 'q' para salir
+                quit = true;
+                break;
+            // Añade más casos si necesitas más controles
+        }
+    }
 }
 
-/*
-void SubMenu::buscarUnTag(HTMLParser parser) {
+void SubMenu::imprimirIndicePalabras(vector<map<string, set<string>>> indicePalabras) {
+    map <string, set<string>> palabrasOrdenadas;
 
-  int fila = 3;
-  int columna = (COLS - 60) / 2;
-  int indice = 0;
-  int pagina = 0;
-  int elementosPorPagina = LINES - 10; // Calcula cuántos elementos caben en una página
-
-  imprimirMarco("");
-  attron(COLOR_PAIR(1));
-  echo(); // Habilitar el eco de los caracteres ingresados por el usuariomvprin
-  mvprintw(LINES / 2 - 10, COLS / 2 - 10, "BUSCAR UN TAG");
-  mvprintw(LINES / 2 - 10 + 2, COLS / 2 - 15, ">>> ");
-  attroff(COLOR_PAIR(1));
-
-  char userInput[256];
-  getnstr(userInput, sizeof(userInput) - 1);
-  noecho(); // Deshabilitar el eco de los caracteres
-
-  vector<string> etiquetas = parser.getTag(userInput);
-  if (etiquetas.empty()) {
-    clear();
-    mvprintw(LINES / 2 - 10, COLS / 2 - 10, "No se encontraron etiquetas");
-    refresh();
-    getch();
-    return;
-  }
-
-  int cantidadEtiquetas = etiquetas.size();
-  while (indice < cantidadEtiquetas) {
-    imprimirMarco("");
-
-    for (int i = 0; i < elementosPorPagina && indice < cantidadEtiquetas; ++i) {
-
-      if (etiquetas[indice].length() > COLS - 10) {
-        mvprintw(fila, 2, "[%d] <%s>", indice + 1, (etiquetas[indice].substr(0, COLS - 15) + "...").c_str());
-      } else {
-        mvprintw(fila, 2, "[%d] <%s>", indice + 1, etiquetas[indice].c_str());
-      }
-      ++fila;
-      ++indice;
+    for (const auto& mapa : indicePalabras) {
+        for (const auto& par : mapa) {
+            string palabra = par.first;
+            set<string> informacion = par.second;
+            palabrasOrdenadas[palabra] = informacion;
+        }
     }
 
-    mvprintw(LINES - 3, columna - 3, "<< Página %d - Presione 'q' para salir o 'cualquier tecla' para continuar >>", pagina + 1);
-    refresh();
+   mousemask(ALL_MOUSE_EVENTS | REPORT_MOUSE_POSITION, NULL);
+    keypad(stdscr, TRUE);
+    MEVENT event;
 
-    int continuar = getch();
-    if (continuar == 'q') {
-      return;
+    int scroll_offset = 0;
+    bool quit = false;
+
+    while (!quit) {
+        clearScreen();
+        imprimirMarco("Índice de Palabras");
+
+        int max_line = LINES - 3;
+        int current_line = 2;
+
+        int i = 0;
+        for (const auto& par : palabrasOrdenadas) {
+            if (i < scroll_offset) {
+                i++;
+                continue;
+            }
+
+            // Cada palabra y su información asociada
+            string palabra = par.first;
+            set<string> informacion = par.second;
+
+            mvprintw(current_line++, MARGIN, "Palabra: %s", palabra.c_str());
+
+            for (const auto& info : informacion) {
+                if (current_line <= max_line) {
+                    mvprintw(current_line++, MARGIN + 2, "Info: %s", info.c_str());
+                } else {
+                    break;  // Rompe el bucle si alcanzamos el límite de líneas
+                }
+            }
+
+            if (current_line <= max_line) {
+                // Separador entre palabras
+                mvprintw(current_line++, MARGIN, "----------------");
+            } else {
+                break;  // Rompe el bucle si alcanzamos el límite de líneas
+            }
+        }
+
+        int ch = getch();
+        switch (ch) {
+            case KEY_MOUSE:
+                if (getmouse(&event) == OK) {
+                    if (event.bstate & BUTTON4_PRESSED) {
+                        scroll_offset -= SCROLL_LINE_STEP;
+                        if (scroll_offset < 0) scroll_offset = 0;
+                    } else if (event.bstate & BUTTON5_PRESSED) {
+                        scroll_offset += SCROLL_LINE_STEP;
+                        int max_offset = static_cast<int>(indicePalabras.size()) - max_line;
+                        if (scroll_offset > max_offset) scroll_offset = max_offset;
+                    }
+                }
+                break;
+            case 'q':
+                quit = true;
+                break;
+        }
     }
-    fila = 3;
-    ++pagina;
-  }
 }
-*/
-
-/*
-void SubMenu::enlacesHtml(vector<string> links) {
-
-  if(links.empty()){
-    clear();
-    mvprintw(LINES / 2 - 10, COLS / 2 - 10, "No se encontraron enlaces");
-    refresh();
-    getch();
-    return;
-  }
-
-  int fila = 3;
-  int columna = (COLS - 60) / 2;
-  int cantidadLinks = links.size();
-  int indice = 0;
-  int pagina = 0;
-  int elementosPorPagina = LINES - 10; // Calcula cuántos elementos caben en una 
-
-  while (indice < cantidadLinks) {
-    clear(); // Borra la pantalla antes de imprimir la siguiente página
-    imprimirMarco("ENLACES EN EL HTML");
-
-    for (int i = 0; i < elementosPorPagina && indice < cantidadLinks; ++i) {
-
-      if (links[indice].length() > COLS - 10) {
-        mvprintw(fila, 2, "[%d] %s", indice + 1, (links[indice].substr(0, COLS - 15) + "...").c_str());
-      } else {
-        mvprintw(fila, 2, "[%d] %s", indice + 1, links[indice].c_str());
-      }
-      ++fila;
-      ++indice;
-    }
-
-    mvprintw(LINES - 3, columna - 3, "<< Página %d - Presione 'q' para salir o 'cualquier tecla' para continuar >>", pagina + 1);
-    refresh();
-    int continuar = getch();
-
-    if (continuar == 'q') {
-      return;
-    }
-    fila = 3;
-    ++pagina;
-  }
-}
-*/
-
-/*
-void SubMenu::imagenesHtml(vector<string> imagenes) {
-
-  if (imagenes.empty()) {
-    clear();
-    mvprintw(LINES / 2 - 10, COLS / 2 - 10, "No se encontraron imágenes");
-    refresh();
-    getch();
-    return;
-  }
-
-  int fila = 3;
-  int columna = (COLS - 60) / 2;
-  int cantidadImagenes = imagenes.size();
-  int indice = 0;
-  int pagina = 0;
-  int elementosPorPagina = LINES - 10; // Calcula cuántos elementos caben en una página
-
-  while (indice < cantidadImagenes) {
-    clear(); // Borra la pantalla antes de imprimir la siguiente página
-    imprimirMarco("IMAGENES EN EL HTML");
-
-    for (int i = 0; i < elementosPorPagina && indice < cantidadImagenes; ++i) {
-
-      if (imagenes[indice].length() > COLS - 10) {
-        mvprintw(fila, 2, "[%d] %s", indice + 1,
-                 (imagenes[indice].substr(0, COLS - 15) + "...").c_str());
-      } else {
-        mvprintw(fila, 2, "[%d] %s", indice + 1, imagenes[indice].c_str());
-      }
-      ++fila;
-      ++indice;
-    }
-
-    mvprintw(LINES - 3, columna - 3, "<< Página %d - Presione 'q' para salir o 'cualquier tecla' para continuar >>", pagina + 1);
-    refresh();
-
-    int continuar = getch();
-    if (continuar == 'q') {
-      return;
-    }
-    fila = 3;
-    ++pagina;
-  }
-}
-*/

@@ -1,22 +1,31 @@
+<capitulo 1 - El problema>
+La informacion geografica juega un papel muy importante en la sociedad. Casi todas las actividades y decisiones humanas tienen un componente geografico, y en general el 
+valor de la informacion aumenta cuando esta conectado a una ubicacion geografica, como pueden ser datos financieros, datos de salud y datos de comportamiento. Con el 
+rapido desarrollo tecnologico y la amplia aceptacion de los dispositivos moviles inteligentes, se esta desarrollando una nueva categoria de servicios basados en la localizacion
+Los servicios basados en localizacion (Location Based Services, LBS),  tal y como se conocen hoy en dia, engloban un conjunto de aplicaciones que incorporan a la 
+informacion de posicion otros datos relativos al entorno, con el fin de proporcionar un servicio de valor anadido al usuario  (TSSI, 2005). Estos servicios nacen de 
+la convergencia de Internet, las comunicaciones inalambricas y las tecnologias de posicionamiento, y estan muy ligados a conceptos emergentes como la inteligencia ambiental o el espacio inteligente.
+Dicho interes por los servicios de localizacion (LBS) y la tecnologia subyacente comenzo en la decada de los 90. Fue cuando el mercado en los servicios de datos fue 
+impulsado por los operadores de redes de telefonia movil. Hacia 1997, las redes moviles se desplegaron por toda Europa, Asia y Estados Unidos, y casi simultaneamente en America Latina y en el mundo.
+Durante los ultimos anos, diversas circunstancias han impulsado el desarrollo de los sistemas de localizacion. En el caso de EEUU, estas tecnologias cobraron especial 
+interes a raiz de un mandato legislativo promulgado
 
-¿jajaj
-queee?
-¿Amigo o enemigo?
-23432 23ad 32d
-* / 
-asd*. 
-capítulo
-asd.jjj
-jeje,j
+<capitulo 2 - Algo>
+Son varios los beneficios que brindan las aplicaciones moviles a entes publicos y  privados en tema de seguridad, entre los cuales se destacan: Poder brindar a los cuerpos de seguridad informacion valiosa en tiempo real, como tambien a 
+las comunidades, facilitando la prevencion y actuacion sobre los eventos reportados, contribuyendo a mejorar la seguridad de la poblacion en general, contribuir a las investigaciones criminales asi como robustecer la informacion de crimen 
+y violencia disponible para la gestion de las politicas de seguridad.
+La Organizacion para la Cooperacion y el Desarrollo Economicos (OECD) y la Union Internacional de Telecomunicaciones (ITU) para el 2011 mencionan, entre otros beneficios, la posibilidad para el gobierno o instituciones privadas de llegar 
+a mayores grupos de ciudadanos, costo-efectividad en la prestacion de los servicios, rapidez en el flujo de informacion y mayor participacion ciudadana que llevan a mayor transparencia y rendicion de cuentas (OECD  ITU, 2011).
+En Venezuela se han desarrollado iniciativas en materia de informacion, prevencion y soluciones para la seguridad publica que hacen uso de la tecnologia movil, entre las cuales se desatacan:
+Policia de Bolsillo, una aplicacion movil que fue presentada para el 2014, disenada en pro de la seguridad ciudadana en el pais, es una aplicacion comoda y sencilla, que permite notificar a 3 contactos indicados previamente por el usuario 
+si este se encuentra en una situacion de emergencia (El Mundo, 2014).
 
-melectrocutaste-pedrito
-
-cambur.
-pinton, y verde jijiji
-�Que significa GPS?
-a)
-b)
-c)
-¿te casarías conmigo?
-(te amo)
-¡ACEPTO, ACEPTO!
+<capitulo 3 - Dios Ayudame>
+No existe un sistema automatizado que les permita conocer la estadistica de dichos registros. Dificultando mejorar la seguridad de la poblacion en general al no existir estadisticas exactas sobre la region que permitan a las personas u organizaciones afectadas tomar precauciones.
+Inexistencia de herramientas que permitan la correcta identificacion de la mejor ruta para trasladarse a una determinada ubicacion dentro de su jurisdiccion y por lo tanto deficit en los tiempos de respuesta en caso de una emergencia.
+Aunque las necesidades de los bomberos van mas alla de la propuesta de este trabajo, el sistema propuesto ayudara a solucionar muchos de los problemas planteados previamente, como lo son: Intercomunicacion entre los cuerpos de seguridad, generar estadisticas asociadas al tiempo 
+de atencion de eventos y seguimiento de los mismos en tiempo real.
+En vista de la necesidad de que los usuarios posean una herramienta de colaboracion en linea enfocada en aspectos de seguridad y evidenciando que estas aplicaciones no solo pueden estar cambiando la relacion ciudadano-policia, sino que tambien pueden 
+representar una forma innovadora de robustecer la informacion de crimen y violencia para la gestion de las politicas de seguridad ciudadana, se plantea el diseno de un sistema para la gestion de eventos geolocalizados que pueda servir a los cuerpos de seguridad, bomberos, servicios 
+de transito y en general todos los entes privados y publicos que requieran controlar en tiempo real y gerenciar procesos de atencion de eventos geolocalizados.
+De esta manera, se plantean las siguientes preguntas de investigacion

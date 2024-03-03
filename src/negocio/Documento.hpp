@@ -12,6 +12,7 @@ class Documento {
 
     private:
         string texto;
+        string textoProcesado;
         int numeroDeLineas, numeroDeCapitulos, numeroDePaginas, numeroPalabrasTotal = 0;
         Indice indice;
         Capitulos capitulos;
@@ -19,24 +20,29 @@ class Documento {
 
     private:
         void procesarTexto();
+        // Procesa el documento para poder ser impreso por pantalla
+        string procesarDocumento();
 
     public:
         Documento(string texto);
+
+        void getPalabra(string nombre);
         
         void agregarCapitulos(vector<CapituloEstructura> capitulos);
         void mostrarCapitulos();
+        void getCapituloIndice(string nombreCapitulo);
 
         void agregarPalabra(vector<PalabraEstructura> palabras);
-        void getIndice();
-
-        // Procesa el documento para poder ser impreso por pantalla
-        string procesarDocumento();
+        vector<map<string, set<string>>> getIndice();
+        void buscarPalabra(string palabra);
 
         void setNumeroLineas(int numeroDeLineas);
         int getNumeroLineas();
         int getNumeroPaginas();
         int getNumeroDeCapitulos();
         int getNumeroPalabrasTotal();
+
+        string getTextoProcesado();
         
 
 };

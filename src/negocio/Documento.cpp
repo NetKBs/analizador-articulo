@@ -4,6 +4,7 @@
 Documento::Documento(string texto) : extractor(texto) {
     this -> texto = texto;
     procesarTexto();
+    this -> textoProcesado = procesarDocumento();
 }
 
 void Documento::procesarTexto() {
@@ -22,16 +23,37 @@ void Documento::agregarPalabra(vector<PalabraEstructura> palabras) {
     this -> indice.insertarPalabras(palabras);
 }
 
-void Documento::getIndice() {
-    cout << "hola"<< endl;
+vector<map<string, set<string>>> Documento::getIndice() {
+  
     vector<string> llavero = this -> indice.getLlavero();
+    vector <map<string, set<string>>> indicePalabras; //palabra-paginas
+
     for (string llave: llavero) {
-        cout << llave << endl;
+        
        list<tuple<string, string, string>> palabras = indice.tabla.buscar(llave);
 
-       for (const auto& tupla : palabras) {
-           cout << get<0>(tupla) << " " << get<1>(tupla) << " " << get<2>(tupla) << endl;
-       }
+        if (!palabras.empty()) {
+            map<string, set<string>> wordMap;
+            for (const auto& trio : palabras) {
+                string word = get<0>(trio);
+                string page = get<1>(trio);
+                wordMap[word].insert(page);
+            }
+
+            indicePalabras.push_back(wordMap);
+        }
+    }
+
+    return indicePalabras;
+}
+
+void Documento::buscarPalabra(string palabra) {
+    vector<pair<string, string>> ocurrencias = this -> indice.buscarOcurrenciasParciales(palabra);
+    if(ocurrencias.empty()) {
+        cout << "fok" << endl;
+    }
+    for (const auto& ocurrencia : ocurrencias) {
+        cout << ocurrencia.first << " - " << ocurrencia.second << endl;
     }
 }
 
@@ -42,6 +64,14 @@ void Documento::agregarCapitulos(vector<CapituloEstructura> capitulos) {
 void Documento::mostrarCapitulos() {
     this -> capitulos.mostrar();
 } 
+
+void Documento::getCapituloIndice(string nombreCapitulo) {
+    capitulos.buscarCapituloIndice(nombreCapitulo, indice.tabla, indice.getLlavero());
+}
+
+
+
+
 
 string Documento::procesarDocumento() {
     istringstream streamTexto(texto);
@@ -99,4 +129,8 @@ int Documento::getNumeroLineas() {
 
 int Documento::getNumeroPalabrasTotal() {
     return this -> numeroPalabrasTotal;
+}
+
+string Documento::getTextoProcesado() {
+    return this -> textoProcesado;
 }

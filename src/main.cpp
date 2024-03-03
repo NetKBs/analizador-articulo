@@ -28,7 +28,10 @@ int main (int argc, char *argv[]) {
    
     
     Documento documento = Documento(articulo);
-    documento.getIndice();
+
+    //documento.getPalabra("toda");
+   // documento.getCapituloIndice("1");
+
     //documento.mostrarCapitulos();
     //documento.mostrarIndice();
     //cout << "Capitulos: " << documento.getNumeroDeCapitulos() << endl;

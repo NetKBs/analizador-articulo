@@ -5,6 +5,7 @@
 #include "ExtraerArchivo.hpp"
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 class Capitulos {
@@ -15,6 +16,8 @@ class Capitulos {
         Capitulos();
         void insertarCapitulos(vector<CapituloEstructura> capitulos);
         CapituloEstructura buscarUnCapitulo(string nombre);
+
+        void buscarCapituloIndice(string nombre, HashTable<string, string, string> palabrasTabla, vector<string> llavero);
         
         void mostrar();
 };
