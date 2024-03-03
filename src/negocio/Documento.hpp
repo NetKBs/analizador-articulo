@@ -36,6 +36,8 @@ class Documento {
         vector<map<string, set<string>>> getIndice();
         void buscarPalabra(string palabra);
 
+        bool eliminarPalabra(string palabra);
+
         void setNumeroLineas(int numeroDeLineas);
         int getNumeroLineas();
         int getNumeroPaginas();

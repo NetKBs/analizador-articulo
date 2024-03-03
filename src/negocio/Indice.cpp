@@ -26,6 +26,36 @@ void Indice::verificarInsertarPalabra(const std::string &palabra) {
     }
 }
 
+
+
+// Función para eliminar coincidencias parciales de una palabra en la tabla hashing
+bool Indice::eliminarPalabraIndice(const string &palabra) {
+    int posicion = tabla.hashFunction(palabra);
+    list<tuple<string, string, string>> lista = tabla.table[posicion];
+    bool seElimino = false;
+
+    for (auto it = lista.begin(); it != lista.end(); ) {
+        if ( std::search(std::get<0>(*it).begin(), std::get<0>(*it).end(), palabra.begin(), palabra.end()) != std::get<0>(*it).end() ) {
+            it = lista.erase(it);
+            seElimino = true;
+        } else {
+            ++it;
+        }
+    }
+    
+    if (seElimino) {
+        tabla.table[posicion] = lista;
+        // eliminamos la palabta del llavero
+        llavero.erase(std::remove(llavero.begin(), llavero.end(), palabra), llavero.end());
+        return true;
+    }
+    return false;
+    
+}
+
+
+
+
  // Función para buscar ocurrencias parciales de una palabra y devolver las páginas asociadas
    vector<pair<string, string>> Indice::buscarOcurrenciasParciales(const string keyword) {
        vector<pair<string, string>> ocurrencias;

@@ -57,6 +57,11 @@ void Documento::buscarPalabra(string palabra) {
     }
 }
 
+bool Documento::eliminarPalabra(string palabra) {
+    this -> indice.eliminarPalabraIndice(palabra);
+
+}
+
 void Documento::agregarCapitulos(vector<CapituloEstructura> capitulos) {
     this -> capitulos.insertarCapitulos(capitulos);
 }
