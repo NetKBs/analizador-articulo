@@ -13,7 +13,10 @@
 SubMenu::SubMenu() {
   initscr();
   start_color();
-  init_pair(1, COLOR_BLUE, COLOR_BLACK);
+    init_pair(1, COLOR_WHITE, COLOR_BLACK); 
+    init_pair(2, COLOR_BLACK, COLOR_WHITE);
+    init_pair(3, COLOR_BLUE, COLOR_BLACK);
+    
 }
 
 SubMenu::~SubMenu() { endwin(); }
@@ -28,7 +31,7 @@ void SubMenu::imprimirMarco(string titulo) {
   int terminal_height = LINES; // Altura de la terminal
 
   clearScreen();
-  attron(COLOR_PAIR(1));
+  attron(COLOR_PAIR(3));
   // Top border
   mvprintw(0, 0, "+");
   for (int i = 1; i < terminal_width - 1; ++i) {
