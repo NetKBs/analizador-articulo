@@ -5,6 +5,7 @@
 #include <iostream>
 #include <map>
 #include <ncurses.h>
+#include <set>
 #include <vector>
 
 
@@ -26,6 +27,7 @@ public:
     //void imagenesHtml(vector<string> imagenes);
 
     void imprimirDocumento(string textoProcesado);
+    void imprimirIndicePalabras(vector<map<string, set<string>>> indicePalabras);
 
 
 };

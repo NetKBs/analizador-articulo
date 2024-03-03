@@ -121,7 +121,7 @@ void GUI::handleOption(int option) {
 
     switch (option) {
         case 1:
-            
+            submenu.imprimirIndicePalabras(documento.getIndice());
             break;
         case 2:
             

@@ -27,7 +27,7 @@ class Documento {
         void mostrarCapitulos();
 
         void agregarPalabra(vector<PalabraEstructura> palabras);
-        void getIndice();
+        vector<map<string, set<string>>> getIndice();
 
         // Procesa el documento para poder ser impreso por pantalla
         string procesarDocumento();
