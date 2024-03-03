@@ -134,8 +134,72 @@ void SubMenu::imprimirDocumento(string textoProcesado) {
     }
 }
 
-
 void SubMenu::imprimirIndicePalabras(vector<map<string, set<string>>> indicePalabras) {
-  
+    mousemask(ALL_MOUSE_EVENTS | REPORT_MOUSE_POSITION, NULL);
+    keypad(stdscr, TRUE);
+    MEVENT event;
 
+    int scroll_offset = 0;
+    bool quit = false;
+
+    while (!quit) {
+        clearScreen();
+        imprimirMarco("Índice de Palabras");
+
+        int max_line = LINES - 3;
+        int current_line = 2;
+
+        for (size_t i = scroll_offset; i < indicePalabras.size(); ++i) {
+            const auto& mapa = indicePalabras[i];
+
+            // Encabezado del mapa actual
+            mvprintw(current_line++, MARGIN, "Mapa %d:", static_cast<int>(i + 1));
+
+            for (const auto& par : mapa) {
+                // Cada palabra y su información asociada
+                string palabra = par.first;
+                set<string> informacion = par.second;
+
+                if (current_line <= max_line) {
+                    mvprintw(current_line++, MARGIN, "Palabra: %s", palabra.c_str());
+
+                    for (const auto& info : informacion) {
+                        if (current_line <= max_line) {
+                            mvprintw(current_line++, MARGIN + 2, "Info: %s", info.c_str());
+                        } else {
+                            break;  // Rompe el bucle si alcanzamos el límite de líneas
+                        }
+                    }
+                } else {
+                    break;  // Rompe el bucle si alcanzamos el límite de líneas
+                }
+            }
+
+            if (current_line <= max_line) {
+                // Separador entre mapas
+                mvprintw(current_line++, MARGIN, "----------------");
+            } else {
+                break;  // Rompe el bucle si alcanzamos el límite de líneas
+            }
+        }
+
+        int ch = getch();
+        switch (ch) {
+            case KEY_MOUSE:
+                if (getmouse(&event) == OK) {
+                    if (event.bstate & BUTTON4_PRESSED) {
+                        scroll_offset -= SCROLL_LINE_STEP;
+                        if (scroll_offset < 0) scroll_offset = 0;
+                    } else if (event.bstate & BUTTON5_PRESSED) {
+                        scroll_offset += SCROLL_LINE_STEP;
+                        int max_offset = static_cast<int>(indicePalabras.size()) - max_line;
+                        if (scroll_offset > max_offset) scroll_offset = max_offset;
+                    }
+                }
+                break;
+            case 'q':
+                quit = true;
+                break;
+        }
+    }
 }
