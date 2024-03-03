@@ -209,25 +209,6 @@ void SubMenu::imprimirIndicePalabras(vector<map<string, set<string>>> indicePala
     }
 }
 
-void SubMenu::imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, int numeroDePaginas, int numeroPalabrasTotal, int numeroDePalabrasUnicas) {
-    clearScreen();
-
-    box(stdscr, 0, 0);
-    int max_x, max_y;
-    getmaxyx(stdscr, max_y, max_x);
-    int x = (max_x - 75) / 2;
-    mvprintw(max_y/2, x, "Estadísticas del documento:");
-    mvprintw(max_y/2+2, x, "Número de capítulos: %d", numeroDeCapitulos);
-    mvprintw(max_y/2+3, x, "Número de líneas: %d", numeroDeLineas);
-    mvprintw(max_y/2+4, x, "Número de páginas: %d", numeroDePaginas);
-    mvprintw(max_y/2+5, x, "Número de palabras totales: %d", numeroPalabrasTotal);
-    mvprintw(max_y/2+6, x, "Número de palabras únicas: %d", numeroDePalabrasUnicas);
-    mvprintw(max_y/2+8, x, "Presione 'Cualquier Tecla' para salir");
-    refresh();
-    getch();
-    
-    
-}
 void SubMenu::buscarUnCapitulo(Documento documento) {
     imprimirMarco(""); // Imprime el marco inicial
     attron(COLOR_PAIR(1));
@@ -286,4 +267,43 @@ void SubMenu::imprimirConScroll(const vector<string>& lines) {
             // Agrega más casos si necesitas más controles
         }
     }
+}
+
+void SubMenu::EliminarPalabra(Documento& documento) {
+    int fila = 3;
+    int columna = (COLS - 60) / 2;
+    int indice = 0;
+    int pagina = 0;
+    int elementosPorPagina = LINES - 10; // Calcula cuántos elementos caben en una página
+
+    imprimirMarco("");
+    attron(COLOR_PAIR(1));
+    echo(); // Habilitar el eco de los caracteres ingresados por el usuario
+    mvprintw(LINES / 2 - 10, COLS / 2 - 10, "BUSCAR PALABRA");
+    mvprintw(LINES / 2 - 10 + 2, COLS / 2 - 15, ">>> ");
+    attroff(COLOR_PAIR(1));
+
+    char userInput[256];
+    getnstr(userInput, sizeof(userInput) - 1);
+    noecho(); 
+
+    // Llama al método eliminarPalabra de la clase Documento
+    bool palabraEliminada = documento.eliminarPalabra(userInput);
+
+    if (palabraEliminada) {
+        // Realiza las acciones necesarias después de eliminar la palabra
+        // Puedes mostrar un mensaje de éxito o realizar otras operaciones
+        mvprintw(LINES / 2, COLS / 2 - 10, "Palabra eliminada con éxito");
+    } else {
+        // La palabra no se encontró o no se pudo eliminar
+        mvprintw(LINES / 2, COLS / 2 - 10, "Palabra no encontrada o no se pudo eliminar");
+    }
+
+    // Puedes agregar más lógica según tus necesidades
+}
+
+void imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, int numeroDePaginas, int numeroPalabrasTotal, int numeroDePalabrasUnicas){
+
+
+
 }

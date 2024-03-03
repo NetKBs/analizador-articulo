@@ -125,11 +125,10 @@ void GUI::handleOption(int option) {
             submenu.imprimirIndicePalabras(documento.getIndice());
             break;
         case 2:
-            
+            submenu.EliminarPalabra(documento);
             break;
         case 3:
-            submenu.imprimirEstadisticas(documento.getNumeroDeCapitulos(), documento.getNumeroLineas(), documento.getNumeroPaginas(), 
-            documento.getNumeroPalabrasTotal(), documento.getNumeroPalabrasUnicas());
+            
             break;
         case 4:
             

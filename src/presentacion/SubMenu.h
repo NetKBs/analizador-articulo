@@ -31,7 +31,7 @@ public:
     void buscarUnCapitulo(Documento documento);
     void imprimirConScroll(const vector<string>& lines);
     void imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, int numeroDePaginas, int numeroPalabrasTotal, int numeroDePalabrasUnicas);
-
+    void EliminarPalabra(Documento& documento);
 
 };
 
