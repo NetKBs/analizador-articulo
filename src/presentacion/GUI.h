@@ -1,7 +1,7 @@
 #ifndef GUI_H
 #define GUI_H
 
-#include <ncurses.h>
+//#include <ncurses.h>
 #include <iostream>
 #include <vector>
 #include <string>

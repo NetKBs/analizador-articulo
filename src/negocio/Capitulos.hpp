@@ -17,7 +17,7 @@ class Capitulos {
         void insertarCapitulos(vector<CapituloEstructura> capitulos);
         CapituloEstructura buscarUnCapitulo(string nombre);
 
-        void buscarCapituloIndice(string nombre, HashTable<string, string, string> palabrasTabla, vector<string> llavero);
+        vector<string> buscarCapituloIndice(string nombre, HashTable<string, string, string> palabrasTabla, vector<string> llavero);
         
         void mostrar();
 };

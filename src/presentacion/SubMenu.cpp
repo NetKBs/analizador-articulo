@@ -209,25 +209,62 @@ void SubMenu::imprimirIndicePalabras(vector<map<string, set<string>>> indicePala
     }
 }
 
-void SubMenu::buscarUnCapitulo(){
-  int fila = 3;
-  int columna = (COLS - 60) / 2;
-  int indice = 0;
-  int pagina = 0;
-  int elementosPorPagina = LINES - 10; // Calcula cuántos elementos caben en una página
+void SubMenu::buscarUnCapitulo(Documento documento) {
+    imprimirMarco(""); // Imprime el marco inicial
+    attron(COLOR_PAIR(1));
+    echo(); // Habilita el eco de los caracteres ingresados por el usuario
+    mvprintw(LINES / 2 - 10, COLS / 2 - 10, "BUSCAR UN CAPITULO");
+    mvprintw(LINES / 2 - 10 + 2, COLS / 2 - 15, ">>> ");
+    attroff(COLOR_PAIR(1));
 
-  imprimirMarco("");
-  attron(COLOR_PAIR(1));
-  echo(); // Habilitar el eco de los caracteres ingresados por el usuariomvprin
-  mvprintw(LINES / 2 - 10, COLS / 2 - 10, "BUSCAR UN CAPITULO");
-  mvprintw(LINES / 2 - 10 + 2, COLS / 2 - 15, ">>> ");
-  attroff(COLOR_PAIR(1));
+    char userInput[256];
+    getnstr(userInput, sizeof(userInput) - 1);
+    noecho(); // Deshabilita el eco de los caracteres
 
-  char userInput[256];
-  getnstr(userInput, sizeof(userInput) - 1);
-  noecho(); // Deshabilitar el eco de los caracteres
+    string nombreCapitulo = userInput;
+    vector<string> resultado = documento.getCapituloIndice(nombreCapitulo);
 
+    imprimirConScroll(resultado);
+}
 
+void SubMenu::imprimirConScroll(const vector<string>& lines) {
+    mousemask(ALL_MOUSE_EVENTS | REPORT_MOUSE_POSITION, NULL);
+    keypad(stdscr, TRUE);
+    MEVENT event;
 
+    int scroll_offset = 0; // Lleva el registro de cuánto hemos scrolleado
+    int max_line = LINES - 3; // Ajuste para el espacio vertical del marco
 
+    // Bucle principal para mostrar el contenido y manejar el scroll
+    bool quit = false;
+    while (!quit) {
+        clearScreen(); // Limpia la pantalla antes de volver a dibujar
+        imprimirMarco("Capítulo Encontrado");
+
+        // Imprimir el contenido desde scroll_offset
+        int max_line_actual = min(max_line, static_cast<int>(lines.size() - scroll_offset));
+        for (int i = 0; i < max_line_actual; ++i) {
+            mvprintw(i + 2, MARGIN, "%s", lines[i + scroll_offset].c_str()); // Ajusta para el margen horizontal
+        }
+
+        // Capturar eventos
+        int ch = getch();
+        switch (ch) {
+            case KEY_MOUSE:
+                if (getmouse(&event) == OK) {
+                    if (event.bstate & BUTTON4_PRESSED) { // Scroll hacia arriba
+                        scroll_offset -= SCROLL_LINE_STEP;
+                        if (scroll_offset < 0) scroll_offset = 0;
+                    } else if (event.bstate & BUTTON5_PRESSED) { // Scroll hacia abajo
+                        scroll_offset += SCROLL_LINE_STEP;
+                        if (scroll_offset > lines.size() - max_line) scroll_offset = lines.size() - max_line;
+                    }
+                }
+                break;
+            case 'q': // Presionar 'q' para salir
+                quit = true;
+                break;
+            // Agrega más casos si necesitas más controles
+        }
+    }
 }

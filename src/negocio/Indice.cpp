@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
-
+#include "HashTable.h"
 #include "Indice.h"
 
 // Función para buscar una palabra en el vector llavero
@@ -26,6 +26,38 @@ void Indice::verificarInsertarPalabra(const std::string &palabra) {
     }
 }
 
+
+
+// Función para eliminar coincidencias parciales de una palabra en la tabla hashing
+pair <bool, int> Indice::eliminarPalabraIndice(const string &palabra) {
+    int posicion = tabla.hashFunction(palabra);
+    list<tuple<string, string, string>> lista = tabla.table[posicion];
+    bool seElimino = false;
+    int numEliminados = 0;
+
+    for (auto it = lista.begin(); it != lista.end(); ) {
+        if ( std::search(std::get<0>(*it).begin(), std::get<0>(*it).end(), palabra.begin(), palabra.end()) != std::get<0>(*it).end() ) {
+            it = lista.erase(it);
+            seElimino = true;
+            numEliminados++;
+        } else {
+            ++it;
+        }
+    }
+    
+    if (seElimino) {
+        tabla.table[posicion] = lista;
+        // eliminamos la palabta del llavero
+        llavero.erase(std::remove(llavero.begin(), llavero.end(), palabra), llavero.end());
+        return {true, numEliminados};
+    }
+    return {false, 0};
+    
+}
+
+
+
+
  // Función para buscar ocurrencias parciales de una palabra y devolver las páginas asociadas
    vector<pair<string, string>> Indice::buscarOcurrenciasParciales(const string keyword) {
        vector<pair<string, string>> ocurrencias;
@@ -48,6 +80,29 @@ void Indice::verificarInsertarPalabra(const std::string &palabra) {
 
 vector<std::string> Indice::getLlavero() {
     return llavero;
+}
+
+// Función de búsqueda parcial utilizando el algoritmo Boyer-Moore
+void Indice::busquedaParcial(const std::string& palabra) {
+    std::vector<std::string> llavesCoincidentes;
+
+    for (const std::string& llave : llavero) {
+        if (llave.find(palabra) != std::string::npos) {
+            llavesCoincidentes.push_back(llave);
+        }
+    }
+
+    if (llavesCoincidentes.empty()) {
+        std::cout << "La palabra '" << palabra << "' no se encontró en el índice." << std::endl;
+    } else {
+        std::cout << "La palabra '" << palabra << "' se encontró en las siguientes páginas:" << std::endl;
+        for (const std::string& llave : llavesCoincidentes) {
+            std::list<std::tuple<std::string, std::string, std::string>> palabras = tabla.buscar(llave);
+            for (const auto& tupla : palabras) {
+                std::cout << "Palabra: " << get<0>(tupla) << " - Página: " << get<1>(tupla) << std::endl;
+            }
+        }
+    }
 }
 
 
