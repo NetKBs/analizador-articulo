@@ -26,6 +26,25 @@ void Indice::verificarInsertarPalabra(const std::string &palabra) {
     }
 }
 
+ // Función para buscar ocurrencias parciales de una palabra y devolver las páginas asociadas
+   vector<pair<string, string>> Indice::buscarOcurrenciasParciales(const string keyword) {
+       vector<pair<string, string>> ocurrencias;
+
+    list<tuple<string, string, string>> lista = tabla.buscar(keyword);
+
+    for (const auto& item : lista) {
+        string palabra = get<0>(item);
+        string pagina = get<2>(item);
+
+        // Realizar búsqueda parcial utilizando el algoritmo de KMP
+        if (palabra.find(keyword) != string::npos) {
+            ocurrencias.push_back(make_pair(palabra, pagina));
+        }
+    }
+
+        return ocurrencias;
+    }
+
 
 vector<std::string> Indice::getLlavero() {
     return llavero;

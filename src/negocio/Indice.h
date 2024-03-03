@@ -25,7 +25,7 @@ public:
     void insertarPalabras(vector<PalabraEstructura> palabras);
     void mostrarIndice();
     void verificarInsertarPalabra(const std::string &palabra);
-
+    vector<pair<string, string>> buscarOcurrenciasParciales(const string keyword);
     vector<std::string> getLlavero();
     
 };

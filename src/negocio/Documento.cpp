@@ -47,6 +47,16 @@ vector<map<string, set<string>>> Documento::getIndice() {
     return indicePalabras;
 }
 
+void Documento::buscarPalabra(string palabra) {
+    vector<pair<string, string>> ocurrencias = this -> indice.buscarOcurrenciasParciales(palabra);
+    if(ocurrencias.empty()) {
+        cout << "fok" << endl;
+    }
+    for (const auto& ocurrencia : ocurrencias) {
+        cout << ocurrencia.first << " - " << ocurrencia.second << endl;
+    }
+}
+
 void Documento::agregarCapitulos(vector<CapituloEstructura> capitulos) {
     this -> capitulos.insertarCapitulos(capitulos);
 }
@@ -59,13 +69,7 @@ void Documento::getCapituloIndice(string nombreCapitulo) {
     capitulos.buscarCapituloIndice(nombreCapitulo, indice.tabla, indice.getLlavero());
 }
 
-// FUNCION PARA DEPURAR 
-void Documento::getPalabra(string nombre) {
-    list<tuple<string, string, string>> palabras = indice.tabla.buscar(nombre);
-    for (const auto& trio : palabras) {
-        cout << get<0>(trio) << " - " << get<1>(trio) << " - " << get<2>(trio) << endl;
-    }
-}
+
 
 
 

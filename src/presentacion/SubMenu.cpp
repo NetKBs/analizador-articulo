@@ -135,7 +135,17 @@ void SubMenu::imprimirDocumento(string textoProcesado) {
 }
 
 void SubMenu::imprimirIndicePalabras(vector<map<string, set<string>>> indicePalabras) {
-    mousemask(ALL_MOUSE_EVENTS | REPORT_MOUSE_POSITION, NULL);
+    map <string, set<string>> palabrasOrdenadas;
+
+    for (const auto& mapa : indicePalabras) {
+        for (const auto& par : mapa) {
+            string palabra = par.first;
+            set<string> informacion = par.second;
+            palabrasOrdenadas[palabra] = informacion;
+        }
+    }
+
+   mousemask(ALL_MOUSE_EVENTS | REPORT_MOUSE_POSITION, NULL);
     keypad(stdscr, TRUE);
     MEVENT event;
 
@@ -149,34 +159,29 @@ void SubMenu::imprimirIndicePalabras(vector<map<string, set<string>>> indicePala
         int max_line = LINES - 3;
         int current_line = 2;
 
-        for (size_t i = scroll_offset; i < indicePalabras.size(); ++i) {
-            const auto& mapa = indicePalabras[i];
+        int i = 0;
+        for (const auto& par : palabrasOrdenadas) {
+            if (i < scroll_offset) {
+                i++;
+                continue;
+            }
 
-            // Encabezado del mapa actual
-            mvprintw(current_line++, MARGIN, "Mapa %d:", static_cast<int>(i + 1));
+            // Cada palabra y su información asociada
+            string palabra = par.first;
+            set<string> informacion = par.second;
 
-            for (const auto& par : mapa) {
-                // Cada palabra y su información asociada
-                string palabra = par.first;
-                set<string> informacion = par.second;
+            mvprintw(current_line++, MARGIN, "Palabra: %s", palabra.c_str());
 
+            for (const auto& info : informacion) {
                 if (current_line <= max_line) {
-                    mvprintw(current_line++, MARGIN, "Palabra: %s", palabra.c_str());
-
-                    for (const auto& info : informacion) {
-                        if (current_line <= max_line) {
-                            mvprintw(current_line++, MARGIN + 2, "Info: %s", info.c_str());
-                        } else {
-                            break;  // Rompe el bucle si alcanzamos el límite de líneas
-                        }
-                    }
+                    mvprintw(current_line++, MARGIN + 2, "Info: %s", info.c_str());
                 } else {
                     break;  // Rompe el bucle si alcanzamos el límite de líneas
                 }
             }
 
             if (current_line <= max_line) {
-                // Separador entre mapas
+                // Separador entre palabras
                 mvprintw(current_line++, MARGIN, "----------------");
             } else {
                 break;  // Rompe el bucle si alcanzamos el límite de líneas

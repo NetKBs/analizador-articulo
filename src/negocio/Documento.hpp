@@ -34,6 +34,7 @@ class Documento {
 
         void agregarPalabra(vector<PalabraEstructura> palabras);
         vector<map<string, set<string>>> getIndice();
+        void buscarPalabra(string palabra);
 
         void setNumeroLineas(int numeroDeLineas);
         int getNumeroLineas();

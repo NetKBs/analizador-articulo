@@ -28,6 +28,7 @@ int main (int argc, char *argv[]) {
    
     
     Documento documento = Documento(articulo);
+
     //documento.getPalabra("toda");
    // documento.getCapituloIndice("1");
 
