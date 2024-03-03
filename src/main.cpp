@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ostream>
 #include "./datos/GestorDeArchivos.hpp"
-#include "./presentacion/GUI.h"
+//#include "./presentacion/GUI.h"
 #include "./negocio/ExtraerArchivo.hpp"
 
 #include "./negocio/Documento.hpp"
@@ -38,6 +38,7 @@ int main (int argc, char *argv[]) {
     //cout << "Paginas: " << documento.getNumeroPaginas() << endl;
     //cout << "Lineas: " << documento.getNumeroLineas() << endl;
     //cout << "PalabrasTotal: " << documento.getNumeroPalabrasTotal() << endl;
+
 
     //GUI gui(documento);
     //gui.showMenu();
