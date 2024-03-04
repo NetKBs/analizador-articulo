@@ -18,14 +18,12 @@ class Documento {
         Capitulos capitulos;
         ExtraerArchivo extractor;
 
-    private:
-        void procesarTexto();
-        // Procesa el documento para poder ser impreso por pantalla
-        string procesarDocumento();
-
     public:
         Documento(string texto);
 
+        void procesarTexto();
+        // Procesa el documento para poder ser impreso por pantalla
+        void procesarDocumento();
         void getPalabra(string nombre);
         
         void agregarCapitulos(vector<CapituloEstructura> capitulos);
