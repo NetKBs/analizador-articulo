@@ -86,7 +86,7 @@ void GUI::showMenu() {
 
                 break;
             case 4:
-                mvprintw(menu_y + 4, menu_x, "4. Busqueda De Palabra");
+                mvprintw(menu_y + 4, menu_x, "4. Busqueda De Palabras");
                 break;
             case 5:
                 mvprintw(menu_y + 5, menu_x, "5. Busqueda De Un Capitulo ");
@@ -135,7 +135,7 @@ void GUI::handleOption(int option) {
             documento.getNumeroPalabrasUnicas());
             break;
         case 4:
-            
+            submenu.MostrarPalabras(documento);
             break;
 
         case 5: {

@@ -255,7 +255,7 @@ void SubMenu::imprimirConScroll(const vector<string>& lines) {
     bool quit = false;
     while (!quit) {
         clearScreen(); // Limpia la pantalla antes de volver a dibujar
-        imprimirMarco("Capítulo Encontrado");
+        imprimirMarco("Resultado de la busqueda");
 
         // Imprimir el contenido desde scroll_offset
         int max_line_actual = min(max_line, static_cast<int>(lines.size() - scroll_offset));
@@ -318,8 +318,34 @@ void SubMenu::EliminarPalabra(Documento& documento) {
     // Puedes agregar más lógica según tus necesidades
 }
 
-void imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, int numeroDePaginas, int numeroPalabrasTotal, int numeroDePalabrasUnicas){
+void SubMenu::MostrarPalabras(Documento documento) {
+    int fila = 3;
+    int columna = (COLS - 60) / 2;
+    int indice = 0;
+    int pagina = 0;
+    int elementosPorPagina = LINES - 10; // Calcula cuántos elementos caben en una página
 
+    imprimirMarco("");
+    attron(COLOR_PAIR(1));
+    echo(); // Habilitar el eco de los caracteres ingresados por el usuario
+    mvprintw(LINES / 2 - 10, COLS / 2 - 10, "BUSCAR PALABRA");
+    mvprintw(LINES / 2 - 10 + 2, COLS / 2 - 15, ">>> ");
+    attroff(COLOR_PAIR(1));
 
+    char userInput[256];
+    getnstr(userInput, sizeof(userInput) - 1);
+    noecho(); // Deshabilitar el eco
 
+    std::string palabra(userInput);
+    auto resultados = documento.buscarPalabra(palabra);
+
+    std::vector<std::string> lines;
+    for (const auto& par : resultados) {
+        for (const auto& ubicacion : par.second) {
+            std::string linea = par.first + " encontrado en: " + ubicacion;
+            lines.push_back(linea);
+        }
+    }
+
+    imprimirConScroll(lines);
 }

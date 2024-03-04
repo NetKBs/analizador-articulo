@@ -32,7 +32,7 @@ public:
     void imprimirConScroll(const vector<string>& lines);
     void imprimirEstadisticas(int numeroDeCapitulos, int numeroDeLineas, int numeroDePaginas, int numeroPalabrasTotal, int numeroDePalabrasUnicas);
     void EliminarPalabra(Documento& documento);
-
+    void MostrarPalabras(Documento documento);
 };
 
 #endif
