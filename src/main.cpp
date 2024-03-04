@@ -29,6 +29,17 @@ int main (int argc, char *argv[]) {
    
     
     Documento documento = Documento(articulo);
+    /*std::map<std::string, std::set<std::string>> palabras = documento.buscarPalabra("con");
+    // mostrar el listado de palabras que se buscaron:
+    for (const auto& pair : palabras) {
+        std::cout << pair.first << ": ";
+        for (const auto& word : pair.second) {
+            std::cout << word << " ";
+        }
+        std::cout << std::endl;
+    }*/
+
+
     //documento.buscarPalabra("cont");
     //documento.getPalabra("toda");
    // documento.getCapituloIndice("1");
@@ -41,8 +52,8 @@ int main (int argc, char *argv[]) {
     cout << "PalabrasTotal: " << documento.getNumeroPalabrasTotal() << endl;
     cout << "PalabrasUnicas: " << documento.getNumeroPalabrasUnicas() << endl;*/
 
-    GUI gui(documento);
-    gui.showMenu();
+    //GUI gui(documento);
+    //gui.showMenu();
 
     return 0;
 }
