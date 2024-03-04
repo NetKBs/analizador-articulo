@@ -29,6 +29,8 @@ int main (int argc, char *argv[]) {
    
     
     Documento documento = Documento(articulo);
+    documento.procesarTexto();
+    documento.procesarDocumento();
     /*std::map<std::string, std::set<std::string>> palabras = documento.buscarPalabra("con");
     // mostrar el listado de palabras que se buscaron:
     for (const auto& pair : palabras) {

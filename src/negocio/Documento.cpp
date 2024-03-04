@@ -3,8 +3,6 @@
 #include <sstream>
 Documento::Documento(string texto) : extractor(texto) {
     this -> texto = texto;
-    procesarTexto();
-    this -> textoProcesado = procesarDocumento();
 }
 
 void Documento::procesarTexto() {
@@ -76,7 +74,7 @@ vector<string> Documento::getCapituloIndice(string nombreCapitulo) {
 
 
 
-string Documento::procesarDocumento() {
+void Documento::procesarDocumento() {
     istringstream streamTexto(texto);
     string linea;
     string textoProcesado = "";
@@ -112,7 +110,7 @@ string Documento::procesarDocumento() {
     textoProcesado += "\n";
     
 }
-return textoProcesado;
+this-> textoProcesado = textoProcesado;
 }
 
 
