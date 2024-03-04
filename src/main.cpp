@@ -52,8 +52,8 @@ int main (int argc, char *argv[]) {
     cout << "PalabrasTotal: " << documento.getNumeroPalabrasTotal() << endl;
     cout << "PalabrasUnicas: " << documento.getNumeroPalabrasUnicas() << endl;*/
 
-    //GUI gui(documento);
-    //gui.showMenu();
+    GUI gui(documento);
+    gui.showMenu();
 
     return 0;
 }

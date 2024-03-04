@@ -341,10 +341,11 @@ void SubMenu::MostrarPalabras(Documento documento) {
 
     std::vector<std::string> lines;
     for (const auto& par : resultados) {
+        std::string linea = par.first + ": ";
         for (const auto& ubicacion : par.second) {
-            std::string linea = par.first + " encontrado en: " + ubicacion;
-            lines.push_back(linea);
+            linea += ubicacion + " ";
         }
+        lines.push_back(linea);
     }
 
     imprimirConScroll(lines);
