@@ -15,19 +15,19 @@ public:
     HashTable<string, string, string> tabla = HashTable<string, string, string>();
 
 private:
-    std::vector<std::string> llavero;
+    vector<string> llavero;
 
 private:
-    bool buscarPalabraEnLlavero(const std::string& palabra);
+    bool buscarPalabraEnLlavero(const string& palabra);
 
 public:
-    //Nuevo Agregado
-    std::map<std::string, std::set<std::string>> busquedaParcial(const std::string& palabra);
+
+    pair<bool, map<string, set<string>>> busquedaParcial(const string& palabra);
     void insertarPalabras(vector<PalabraEstructura> palabras);
     void mostrarIndice();
-    void verificarInsertarPalabra(const std::string &palabra);
+    void verificarInsertarPalabra(const string &palabra);
  
-    vector<std::string> getLlavero();
+    vector<string> getLlavero();
     pair <bool, int> eliminarPalabraIndice(const string &palabra); 
 };
 

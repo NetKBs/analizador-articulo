@@ -28,11 +28,11 @@ class Documento {
         
         void agregarCapitulos(vector<CapituloEstructura> capitulos);
         void mostrarCapitulos();
-        vector<string> getCapituloIndice(string nombreCapitulo);
+        pair<bool, vector<string>> getCapituloIndice(string nombreCapitulo);
 
         void agregarPalabra(vector<PalabraEstructura> palabras);
         vector<map<string, set<string>>> getIndice();
-        map<string, set<string>> buscarPalabra(string palabra);
+        pair<bool, map<string, set<string>>> buscarPalabra(string palabra);
 
         bool eliminarPalabra(string palabra);
 

@@ -83,7 +83,6 @@ void GUI::showMenu() {
                 break;
             case 3:
                 mvprintw(menu_y + 3, menu_x, "3. Estadistica Del Documento");
-
                 break;
             case 4:
                 mvprintw(menu_y + 4, menu_x, "4. Busqueda De Palabras");

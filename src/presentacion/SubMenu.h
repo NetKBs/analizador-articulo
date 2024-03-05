@@ -21,10 +21,6 @@ private:
 public:
     SubMenu();  // constructor
     ~SubMenu(); // destructor
-    //void tagsHtml(map<string, pair<int, double>> tagCounts);
-    //void buscarUnTag(HTMLParser parser);
-    //void enlacesHtml(vector<string> links);
-    //void imagenesHtml(vector<string> imagenes);
 
     void imprimirDocumento(string textoProcesado);
     void imprimirIndicePalabras(vector<map<string, set<string>>> indicePalabras);

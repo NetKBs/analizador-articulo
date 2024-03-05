@@ -5,12 +5,10 @@
 #include "Indice.h"
 
 // Función para buscar una palabra en el vector llavero
-bool Indice::buscarPalabraEnLlavero(const std::string &palabra) {
-  return std::find(llavero.begin(), llavero.end(), palabra) != llavero.end();
+bool Indice::buscarPalabraEnLlavero(const string &palabra) {
+  return find(llavero.begin(), llavero.end(), palabra) != llavero.end();
 }
 
-
-// Nuevo Agregado
 void Indice::insertarPalabras(vector<PalabraEstructura> palabras) {
 	for (const auto &palabra : palabras) {
     verificarInsertarPalabra(palabra.palabra);
@@ -19,14 +17,12 @@ void Indice::insertarPalabras(vector<PalabraEstructura> palabras) {
 }
 
 // Verificar palabra e insertar en el atributo llavero
-void Indice::verificarInsertarPalabra(const std::string &palabra) {
+void Indice::verificarInsertarPalabra(const string &palabra) {
     if (!buscarPalabraEnLlavero(palabra)) {
         llavero.push_back(palabra);
-        std::sort(llavero.begin(), llavero.end()); // Ordenar el llavero alfabéticamente
+        sort(llavero.begin(), llavero.end()); // Ordenar el llavero alfabéticamente
     }
 }
-
-
 
 // Función para eliminar coincidencias parciales de una palabra en la tabla hashing
 pair <bool, int> Indice::eliminarPalabraIndice(const string &palabra) {
@@ -36,7 +32,7 @@ pair <bool, int> Indice::eliminarPalabraIndice(const string &palabra) {
     int numEliminados = 0;
 
     for (auto it = lista.begin(); it != lista.end(); ) {
-        if ( std::search(std::get<0>(*it).begin(), std::get<0>(*it).end(), palabra.begin(), palabra.end()) != std::get<0>(*it).end() ) {
+        if ( search(get<0>(*it).begin(), get<0>(*it).end(), palabra.begin(), palabra.end()) != get<0>(*it).end() ) {
             it = lista.erase(it);
             seElimino = true;
             numEliminados++;
@@ -47,37 +43,38 @@ pair <bool, int> Indice::eliminarPalabraIndice(const string &palabra) {
     
     if (seElimino) {
         tabla.table[posicion] = lista;
-        // eliminamos la palabta del llavero
-        llavero.erase(std::remove(llavero.begin(), llavero.end(), palabra), llavero.end());
+        // eliminamos la palabra del llavero
+        llavero.erase(remove(llavero.begin(), llavero.end(), palabra), llavero.end());
         return {true, numEliminados};
     }
     return {false, 0};
     
 }
 
-std::map<std::string, std::set<std::string>> Indice::busquedaParcial(const std::string& palabra) {
-    std::vector<std::string> llavesCoincidentes;
+pair<bool, map<string, set<string>>>  Indice::busquedaParcial(const string& palabra) {
+    vector<string> llavesCoincidentes;
+    bool encontrado = false;
 
-    for (const std::string& llave : llavero) {
-        if (llave.find(palabra) != std::string::npos) {
+    for (const string& llave : llavero) {
+        if (llave.find(palabra) != string::npos) {
             llavesCoincidentes.push_back(llave);
         }
     }
 
-    std::map<std::string, std::set<std::string>> uniqueWordsAndPages;  // Store unique words and pages
+    map<string, set<string>> uniqueWordsAndPages;  // Store unique words and pages
 
-    // Recorrer la tabla hash y entrar dentro del listado que contiene cada posición y revisar si las palabras que están dentro
-    // de esa lista coinciden con la palabra buscada
-    for (const std::string& llave : llavesCoincidentes) {
-        list<tuple<std::string, std::string, std::string>> palabras = tabla.buscar(llave);
+    // Recorrer la tabla hash y entrar dentro del listado y checar conincidencias
+    for (const string& llave : llavesCoincidentes) {
+        list<tuple<string, string, string>> palabras = tabla.buscar(llave);
         for (const auto& tupla : palabras) {
-            if (std::search(std::get<0>(tupla).begin(), std::get<0>(tupla).end(), palabra.begin(), palabra.end()) != std::get<0>(tupla).end()) {
-                uniqueWordsAndPages[std::get<0>(tupla)].insert(std::get<1>(tupla));  // Add word and page to map
+            if (search(get<0>(tupla).begin(), get<0>(tupla).end(), palabra.begin(), palabra.end()) != get<0>(tupla).end()) {
+                uniqueWordsAndPages[get<0>(tupla)].insert(get<1>(tupla));  // agregar palabra y pagina al map
+                encontrado = true; // si hay palabras encontradas
             }
         }
     }
 
-    return uniqueWordsAndPages;
+    return {encontrado, uniqueWordsAndPages};
 }
 
 vector <string> Indice::getLlavero() {

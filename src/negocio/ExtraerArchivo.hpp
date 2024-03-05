@@ -43,14 +43,12 @@ class ExtraerArchivo {
 
     private:
         string texto;
-
         int numeroDeLineas, numeroDeCapitulos, numeroDePaginas, numeroPalabrasTotal = 0;
     
     public:
         ExtraerArchivo(string texto);
         ExtraccionReturn procesarTexto();
         pair<string, Identificador> analizarExtracto(string extracto, Identificador identificador);
-
 };
 
 #endif

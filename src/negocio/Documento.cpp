@@ -17,62 +17,6 @@ void Documento::procesarTexto() {
 
 }
 
-void Documento::agregarPalabra(vector<PalabraEstructura> palabras) {
-    this -> indice.insertarPalabras(palabras);
-}
-
-vector<map<string, set<string>>> Documento::getIndice() {
-  
-    vector<string> llavero = this -> indice.getLlavero();
-    vector <map<string, set<string>>> indicePalabras; //palabra-paginas
-
-    for (string llave: llavero) {
-        
-       list<tuple<string, string, string>> palabras = indice.tabla.buscar(llave);
-
-        if (!palabras.empty()) {
-            map<string, set<string>> wordMap;
-            for (const auto& trio : palabras) {
-                string word = get<0>(trio);
-                string page = get<1>(trio);
-                wordMap[word].insert(page);
-            }
-
-            indicePalabras.push_back(wordMap);
-        }
-    }
-
-    return indicePalabras;
-}
-
-map<string, set<string>> Documento::buscarPalabra(string palabra) {
-   return indice.busquedaParcial(palabra);
-}
-
-bool Documento::eliminarPalabra(string palabra) {
-    pair <bool, int> eliminado = this -> indice.eliminarPalabraIndice(palabra);
-    if (eliminado.first) {
-        this-> numeroPalabrasTotal -= eliminado.second;
-    }
-    return eliminado.second;
-
-}
-
-void Documento::agregarCapitulos(vector<CapituloEstructura> capitulos) {
-    this -> capitulos.insertarCapitulos(capitulos);
-}
-
-void Documento::mostrarCapitulos() {
-    this -> capitulos.mostrar();
-} 
-
-vector<string> Documento::getCapituloIndice(string nombreCapitulo) {
-    return capitulos.buscarCapituloIndice(nombreCapitulo, indice.tabla, indice.getLlavero());
-}
-
-
-
-
 
 void Documento::procesarDocumento() {
     istringstream streamTexto(texto);
@@ -113,8 +57,58 @@ void Documento::procesarDocumento() {
 this-> textoProcesado = textoProcesado;
 }
 
+// Funciones De Indice
 
+void Documento::agregarPalabra(vector<PalabraEstructura> palabras) {
+    this -> indice.insertarPalabras(palabras);
+}
 
+vector<map<string, set<string>>> Documento::getIndice() {
+  
+    vector<string> llavero = this -> indice.getLlavero();
+    vector <map<string, set<string>>> indicePalabras; //palabra-paginas
+
+    for (string llave: llavero) {
+        
+       list<tuple<string, string, string>> palabras = indice.tabla.buscar(llave);
+
+        if (!palabras.empty()) {
+            map<string, set<string>> wordMap;
+            for (const auto& trio : palabras) {
+                string word = get<0>(trio);
+                string page = get<1>(trio);
+                wordMap[word].insert(page);
+            }
+
+            indicePalabras.push_back(wordMap);
+        }
+    }
+
+    return indicePalabras;
+}
+
+pair<bool, map<string, set<string>>> Documento::buscarPalabra(string palabra) {
+   return indice.busquedaParcial(palabra);
+}
+
+bool Documento::eliminarPalabra(string palabra) {
+    pair <bool, int> eliminado = this -> indice.eliminarPalabraIndice(palabra);
+    if (eliminado.first) {
+        this-> numeroPalabrasTotal -= eliminado.second;
+    }
+    return eliminado.second;
+
+}
+
+// Funciones De Capitulos
+
+void Documento::agregarCapitulos(vector<CapituloEstructura> capitulos) {
+    this -> capitulos.insertarCapitulos(capitulos);
+}
+
+pair<bool, vector<string>> Documento::getCapituloIndice(string nombreCapitulo) {
+    return capitulos.buscarCapituloIndice(nombreCapitulo, indice.tabla, indice.getLlavero());
+}
 
 int Documento::getNumeroDeCapitulos() {
     return this -> numeroDeCapitulos;

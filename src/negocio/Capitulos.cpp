@@ -17,8 +17,9 @@ CapituloEstructura Capitulos::buscarUnCapitulo(string nombre) {
     return CapituloEstructura();
 }
 
-vector<string> Capitulos::buscarCapituloIndice(string nombre, HashTable<string, string, string> palabrasTabla, vector<string> llavero) {
+pair<bool, vector<string>> Capitulos::buscarCapituloIndice(string nombre, HashTable<string, string, string> palabrasTabla, vector<string> llavero) {
     vector<string> palabrasEnCapitulo;
+    bool encontrado = false;
 
     for (string llave: llavero) {
         
@@ -33,6 +34,7 @@ vector<string> Capitulos::buscarCapituloIndice(string nombre, HashTable<string, 
                 if (capitulo.find(nombre) != string::npos) {
                     if(std::find(palabrasEnCapitulo.begin(), palabrasEnCapitulo.end(), palabra) == palabrasEnCapitulo.end()) {
                         palabrasEnCapitulo.push_back(palabra);
+                        encontrado = true;
                     }
                 }
             }         
@@ -40,13 +42,6 @@ vector<string> Capitulos::buscarCapituloIndice(string nombre, HashTable<string, 
     }
     
     sort(palabrasEnCapitulo.begin(), palabrasEnCapitulo.end());
-    return palabrasEnCapitulo;
+    return {encontrado, palabrasEnCapitulo};
     
-}
-
-void Capitulos::mostrar() {
-    for (CapituloEstructura capitulo : capitulos) {
-        cout << "Capitulo: " << capitulo.nombre << " - " << capitulo.paginaInicio << endl;
-    }
-
 }

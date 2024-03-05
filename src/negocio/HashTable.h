@@ -16,7 +16,6 @@ template<typename KeyType, typename SecondValue, typename ExtraValue>
 class HashTable {
 private:
     static const int TABLE_SIZE = 30000;
-   
   
 public:
     vector<list<tuple<KeyType, SecondValue, ExtraValue>>> table;

@@ -1,26 +1,19 @@
 #include "ExtraerArchivo.hpp"
 
 #include <cctype>
-
 #include <codecvt>
 #include <iostream>
-
 #include <locale>
 #include <set>
 #include <sstream>
-
 #include <algorithm>
-
 
 // Para manejar string <-> wstring para temas de utf-8
 wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
 
-
 ExtraerArchivo::ExtraerArchivo(string texto) {
     this -> texto = texto;
 }
-
-
 
 pair < string, Identificador > ExtraerArchivo::analizarExtracto(string extracto, Identificador identificador) {
     string texto;
@@ -35,9 +28,7 @@ pair < string, Identificador > ExtraerArchivo::analizarExtracto(string extracto,
             return {texto, id};
         }
         return {extracto, DESCONOCIDO};
-
     }
-
 
     if (identificador == PALABRA) {
         if (extracto.empty()) return {extracto,IGNORAR};
